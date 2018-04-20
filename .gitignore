@@ -1,0 +1,7 @@
+Library/**
+Temp/**
+*.csproj
+LudumDare41.sln
+*.userprefs
+UnityPackageManager/manifest.json
+ProjectSettings/ProjectVersion.txt
