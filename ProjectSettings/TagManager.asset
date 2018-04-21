@@ -44,6 +44,9 @@ TagManager:
   - name: Field
     uniqueID: 2453617579
     locked: 0
+  - name: Field of view
+    uniqueID: 2053169923
+    locked: 0
   - name: Player
     uniqueID: 901688019
     locked: 0
