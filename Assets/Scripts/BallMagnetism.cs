@@ -11,6 +11,9 @@ public class BallMagnetism : MonoBehaviour {
     private float verticalStore;
     private Vector2 speed;
     private Vector2 speedStore;
+    private SpriteRenderer ballSprite;
+    private SpriteRenderer playerSprite;
+    private int playerSortingOrder;
 
 
     // Use this for initialization
@@ -18,6 +21,9 @@ public class BallMagnetism : MonoBehaviour {
         pos = player.transform.position;
         transform.position = pos + new Vector2(0.05F, -0.05F);
         Debug.Log(transform.position);
+        ballSprite = GetComponent<SpriteRenderer>();
+        playerSprite = player.GetComponent<SpriteRenderer>();
+        playerSortingOrder = playerSprite.sortingOrder;
     }
 	
 	// Update is called once per frame
@@ -32,6 +38,8 @@ public class BallMagnetism : MonoBehaviour {
             float speedModule = speed.magnitude;
             transform.position = pos + new Vector2((0.1F - 0.05F * Mathf.Abs(vertical)) * horizontal*speedModule, 0.05F * vertical*speedModule);
             speedStore = speed.normalized;
+            ballSprite.sortingOrder = Mathf.RoundToInt(playerSortingOrder - vertical);
+            Debug.Log(playerSortingOrder+"    "+ballSprite.sortingOrder);
         }
         else
         {

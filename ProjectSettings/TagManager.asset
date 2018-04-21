@@ -51,9 +51,6 @@ TagManager:
   - name: Player
     uniqueID: 901688019
     locked: 0
-  - name: Ball
-    uniqueID: 1627212779
-    locked: 0
   - name: Clouds
     uniqueID: 2074277189
     locked: 0
