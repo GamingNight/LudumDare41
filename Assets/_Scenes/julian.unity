@@ -152,15 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1038010661}
-    - target: {fileID: 114413859818889876, guid: fc3a18da05307cd47a0697185a3e592a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114413859818889876, guid: fc3a18da05307cd47a0697185a3e592a,
         type: 2}
       propertyPath: player
@@ -207,15 +198,6 @@ Prefab:
     - target: {fileID: 4600168779543046, guid: 5f514e90da62d7944aa6f3788b349c37, type: 2}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1038010661}
-    - target: {fileID: 114646724258550762, guid: 5f514e90da62d7944aa6f3788b349c37,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114646724258550762, guid: 5f514e90da62d7944aa6f3788b349c37,
         type: 2}
@@ -388,19 +370,6 @@ Prefab:
     - target: {fileID: 1346241485166592, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
       propertyPath: m_Name
       value: OpponentStatic1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114094237303122080, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114396257373684, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114396257373684, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
@@ -1027,15 +996,6 @@ Prefab:
     - target: {fileID: 4439445098262946, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1038010661}
-    - target: {fileID: 114315388207337466, guid: e604bbc482396cf4ea4154ec2074b004,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114315388207337466, guid: e604bbc482396cf4ea4154ec2074b004,
         type: 2}

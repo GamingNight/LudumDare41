@@ -20,7 +20,6 @@ public class BallMagnetism : MonoBehaviour {
     void Start () {
         pos = player.transform.position;
         transform.position = pos + new Vector2(0.05F, -0.05F);
-        Debug.Log(transform.position);
         ballSprite = GetComponent<SpriteRenderer>();
         playerSprite = player.GetComponent<SpriteRenderer>();
         playerSortingOrder = playerSprite.sortingOrder;
@@ -39,7 +38,6 @@ public class BallMagnetism : MonoBehaviour {
             transform.position = pos + new Vector2((0.1F - 0.05F * Mathf.Abs(vertical)) * horizontal*speedModule, 0.05F * vertical*speedModule);
             speedStore = speed.normalized;
             ballSprite.sortingOrder = Mathf.RoundToInt(playerSortingOrder - vertical);
-            Debug.Log(playerSortingOrder+"    "+ballSprite.sortingOrder);
         }
         else
         {
