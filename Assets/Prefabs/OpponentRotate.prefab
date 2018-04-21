@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212105769730692552}
   - component: {fileID: 50250267210100398}
   - component: {fileID: 61978412529827026}
+  - component: {fileID: 114413859818889876}
   - component: {fileID: 114978983392948870}
   m_Layer: 0
   m_Name: OpponentRotate
@@ -54,14 +55,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592240375788634}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 2.73, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4525935418295356}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &4525935418295356
 Transform:
   m_ObjectHideFlags: 1
@@ -160,6 +161,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23509e1141ffa04f93b2b92f9ff9e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114413859818889876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592240375788634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2510a081ce49b643a0d7590f6c7da68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 1
 --- !u!114 &114978983392948870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,8 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f87dc33a6ee4f4685c4682e4e92413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementFrequency: 1
-  clockwise: 1
+  movementPeriod: 0.5
+  clockwise: 0
   angleStep: 90
 --- !u!212 &212105769730692552
 SpriteRenderer:
