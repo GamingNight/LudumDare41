@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour {
 
+    public GameObject player;
     public float speed;
     public float slowBall;
 
@@ -24,6 +25,7 @@ public class BallController : MonoBehaviour {
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             rgbd.velocity = speed*new Vector2 (horizontal,vertical);
+            player.GetComponent<PlayerController>().enabled = false;
         }
         else
         {
@@ -45,6 +47,7 @@ public class BallController : MonoBehaviour {
         if (other.gameObject.tag == "Ball")
         {
             dragBall = true;
+            other.transform.parent.GetComponent<PlayerController>().enabled = true;
         }
     }
 }
