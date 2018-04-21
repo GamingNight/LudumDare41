@@ -13,7 +13,6 @@ public class FieldOfViewTrigger : MonoBehaviour {
         playerIsDetected = false;
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision) {
 
         if (collision.gameObject.tag == "Player") {
