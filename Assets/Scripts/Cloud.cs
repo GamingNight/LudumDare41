@@ -22,7 +22,7 @@ public class Cloud : MonoBehaviour
         if (lerpIn)
         {
             lerpTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(1, 0, lerpTime / lerpDuration);
+            float alpha = Mathf.Lerp(spriteRender.color.a, 0, lerpTime / lerpDuration);
             spriteRender.color = new Color(1, 1, 1, alpha);
             if (lerpTime >= 1)
             {
@@ -34,7 +34,7 @@ public class Cloud : MonoBehaviour
         if (lerpOut)
         {
             lerpTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(0, 1, lerpTime / lerpDuration);
+            float alpha = Mathf.Lerp(spriteRender.color.a, 1, lerpTime / lerpDuration);
             spriteRender.color = new Color(1, 1, 1, alpha);
             if (lerpTime >= 1)
             {
@@ -49,11 +49,16 @@ public class Cloud : MonoBehaviour
         if (other.tag == "Ball")
         {
             lerpIn = true;
+            lerpOut = false;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        lerpOut = true;
+        if (other.tag == "Ball")
+        {
+            lerpOut = true;
+            lerpIn = false;
+        }
     }
 }
