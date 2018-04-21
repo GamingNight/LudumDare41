@@ -5,43 +5,41 @@ using UnityEngine;
 public class BallMagnetism : MonoBehaviour {
 
     public GameObject player;
+    public Vector2 positionOffset = new Vector2(0.05f, -0.05f);
 
-    private Vector2 pos;
     private float horizontalStore;
     private float verticalStore;
     private Vector2 speed;
-    private Vector2 speedStore;
     private SpriteRenderer ballSprite;
     private SpriteRenderer playerSprite;
     private int playerSortingOrder;
 
 
     // Use this for initialization
-    void Start () {
-        pos = player.transform.position;
-        transform.position = pos + new Vector2(0.05F, -0.05F);
+    void Start() {
+        Vector2 playerPos = player.transform.position;
+        transform.position = playerPos + positionOffset;
         ballSprite = GetComponent<SpriteRenderer>();
         playerSprite = player.GetComponent<SpriteRenderer>();
         playerSortingOrder = playerSprite.sortingOrder;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        pos = player.transform.position;
+
+    // Update is called once per frame
+    void Update() {
+        Vector2 playerPos = player.transform.position;
         Rigidbody2D rgbd = player.GetComponent<Rigidbody2D>();
+        SpriteRenderer spriterRenderer = player.GetComponent<SpriteRenderer>();
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        if (horizontal != 0 || vertical != 0)
-        {
+        if (horizontal != 0 || vertical != 0) {
             speed = rgbd.velocity;
             float speedModule = speed.magnitude;
-            transform.position = pos + new Vector2((0.1F - 0.05F * Mathf.Abs(vertical)) * horizontal*speedModule, 0.05F * vertical*speedModule);
-            speedStore = speed.normalized;
+            float xOffset = positionOffset.x * horizontal + speedModule * (horizontal * 0.05f * (Mathf.Abs(vertical) == 1 ? 0.5f : 1));
+            float yOffset = positionOffset.y + speedModule * (vertical * 0.05f);
+            transform.position = playerPos + new Vector2(xOffset, yOffset);
             ballSprite.sortingOrder = Mathf.RoundToInt(playerSortingOrder - vertical);
-        }
-        else
-        {
-            transform.position = pos + 0.05F*speedStore;
+        } else {
+            transform.position = playerPos + new Vector2(spriterRenderer.flipX ? -positionOffset.x : positionOffset.x, positionOffset.y);
         }
     }
 }
