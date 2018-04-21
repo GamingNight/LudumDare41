@@ -23,7 +23,7 @@ public class PlayerColliderEnable : MonoBehaviour {
                 {
                     if (child.tag == "PlayerCollider")
                     {
-                        //Debug.Log("C. PlayerController of player is false => enable circle collider");
+                        Debug.Log("C. PlayerController of player is false => enable circle collider");
                         child.GetComponent<CircleCollider2D>().enabled = true; // un player qui n'est pas joueur a une zone de freinage de balle
                     }
                 }
