@@ -48,6 +48,7 @@ public class BallController : MonoBehaviour {
         {
             dragBall = true;
             other.transform.parent.GetComponent<PlayerController>().enabled = true;
+            GetComponent<BallMagnetism>().player = other.transform.parent.gameObject;
         }
     }
 }
