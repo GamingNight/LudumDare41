@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpponentControllerRound : MonoBehaviour {
 
     //public variables
-    public float movementFrequency = 1;
+    public float movementPeriod = 0.5f;
     public bool clockwise = true;
     public float angleStep = 90;
 
@@ -19,7 +19,7 @@ public class OpponentControllerRound : MonoBehaviour {
     void Update() {
 
         timeSinceLastMove += Time.deltaTime;
-        if (timeSinceLastMove >= movementFrequency) {
+        if (timeSinceLastMove >= movementPeriod) {
             Move();
             timeSinceLastMove = 0;
         }
@@ -27,6 +27,6 @@ public class OpponentControllerRound : MonoBehaviour {
 
     private void Move() {
 
-        transform.Rotate(0, 0, clockwise ? angleStep : -angleStep);
+        transform.Rotate(0, 0, clockwise ? -angleStep : angleStep);
     }
 }
