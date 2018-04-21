@@ -13,23 +13,16 @@ public class FieldOfViewTrigger : MonoBehaviour {
         playerIsDetected = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void Update() {
 
-        Debug.Log("ENTER");
-        if(collision.gameObject.tag == "Player") {
-            Debug.Log("PLAYER");
-            playerIsDetected = true;
-            spriteRenderer.color = new Color(255, 128, 128);
-        }
+        Debug.Log(spriteRenderer.color);
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
 
-        Debug.Log("EXIT");
         if (collision.gameObject.tag == "Player") {
-            Debug.Log("PLAYER");
-            playerIsDetected = false;
-            spriteRenderer.color = new Color(255, 255, 255);
+            playerIsDetected = true;
+            spriteRenderer.color = new Color(1, 128f / 255, 128f / 255);
         }
     }
 }
