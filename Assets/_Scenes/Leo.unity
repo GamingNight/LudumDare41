@@ -186,17 +186,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &89008505 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1362360057694898, guid: 05aed7493178de54e8c3087ab5c6f36a,
-    type: 2}
-  m_PrefabInternal: {fileID: 182052797}
---- !u!4 &89008511 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4119313675269052, guid: 05aed7493178de54e8c3087ab5c6f36a,
-    type: 2}
-  m_PrefabInternal: {fileID: 182052797}
---- !u!1001 &182052797
+--- !u!1001 &229468497
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -205,11 +195,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4119313675269052, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.16
+      value: -2.1234975
       objectReference: {fileID: 0}
     - target: {fileID: 4119313675269052, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.06
+      value: 1.0371916
       objectReference: {fileID: 0}
     - target: {fileID: 4119313675269052, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -235,9 +225,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1362360057694898, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &697770145 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4119313675269052, guid: 05aed7493178de54e8c3087ab5c6f36a,
+    type: 2}
+  m_PrefabInternal: {fileID: 229468497}
 --- !u!1 &1273376020
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6df69565cc84141a96e2cb5213bd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 89008505}
+  player: {fileID: 0}
   positionOffset: {x: 0.05, y: -0.05}
 --- !u!50 &1273376024
 Rigidbody2D:
@@ -417,7 +416,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 89008511}
+  m_Father: {fileID: 697770145}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1421307084
