@@ -61,12 +61,12 @@ public class PlayerController : MonoBehaviour {
             rgbd.AddForce(movement.normalized * strength);
             if (vertical < 0 && horizontal == 0) {
                 animator.SetInteger("walkState", 2);
-            } else if (vertical > 0) {
+            } else if (vertical > 0 && horizontal == 0) {
                 animator.SetInteger("walkState", -1);
             } else {
                 animator.SetInteger("walkState", 1);
             }
-            spriteRenderer.flipX = horizontal < 0 && vertical <= 0 || horizontal > 0 && vertical > 0;
+            spriteRenderer.flipX = horizontal < 0 && vertical <= 0 || horizontal < 0 && vertical > 0;
             //    if (!walkAudioSource.isPlaying)
             //        walkAudioSource.Play();
         } else {
