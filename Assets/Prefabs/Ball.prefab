@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4167616834207404}
-  - component: {fileID: 58265137506287256}
   - component: {fileID: 50966209477839906}
+  - component: {fileID: 58085291549011750}
   - component: {fileID: 114316562791720578}
   - component: {fileID: 212058007155090430}
   - component: {fileID: 95033995138408398}
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58265137506287256
+--- !u!58 &58085291549011750
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -144,9 +144,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.04}
   serializedVersion: 2
-  m_Radius: 0.72
+  m_Radius: 1.2
 --- !u!81 &81164849568442928
 AudioListener:
   m_ObjectHideFlags: 1
