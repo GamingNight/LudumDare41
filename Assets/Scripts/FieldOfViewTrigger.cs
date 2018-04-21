@@ -13,10 +13,6 @@ public class FieldOfViewTrigger : MonoBehaviour {
         playerIsDetected = false;
     }
 
-    private void Update() {
-
-        Debug.Log(spriteRenderer.color);
-    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
 

@@ -21,25 +21,16 @@ public class PlayerController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (Input.GetKey(KeyCode.V))
-            {
-            i = i + 1;
-            Debug.Log(rgbd.drag);
-                rgbd.drag = drag / Mathf.Sqrt(runCoeff);
-            }
-        else
         {
-            rgbd.drag = drag;
-            i = 0;
+            //Handle dash (interrupt walking)
+            Dash();
         }
-
-
         //Handle regular walking
         Move();
 
-        //Handle dash (interrupt walking)
-        //Dash();
+
     }
 
     private void Move()
@@ -51,6 +42,41 @@ public class PlayerController : MonoBehaviour {
         {
             movement.Set(horizontal, vertical, 0f);
             rgbd.AddForce(movement.normalized * strength);
+        }
+        //    if (vertical < 0)
+        //    {
+        //        animator.SetInteger("walking", 1);
+        //        lastWalkingAnimationState = 1;
+        //    }
+        //    else if (vertical > 0)
+        //    {
+        //        animator.SetInteger("walking", -1);
+        //        lastWalkingAnimationState = -1;
+        //    }
+        //    else
+        //    {
+        //        animator.SetInteger("walking", lastWalkingAnimationState);
+        //    }
+        //    spriteRenderer.flipX = horizontal < 0;
+        //    if (!walkAudioSource.isPlaying)
+        //        walkAudioSource.Play();
+        //}
+        //else
+        //{
+        //    walkAudioSource.Stop();
+        //    animator.SetInteger("walking", 0);
+        //}
+    }
+
+    private void Dash ()
+    {
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        if (horizontal != 0 || vertical != 0)
+        {
+            movement.Set(horizontal, vertical, 0f);
+            rgbd.AddForce(movement.normalized * strength * Mathf.Sqrt(runCoeff));
         }
         //    if (vertical < 0)
         //    {
