@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 0.3
   boost: 5
-  stamina: 100
+  stamina: 10
   coco: 1
 --- !u!50 &576548648
 Rigidbody2D:

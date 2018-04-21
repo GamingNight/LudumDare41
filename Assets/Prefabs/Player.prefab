@@ -101,8 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 0.3
   boost: 5
-  stamina: 2
-  coco: 1
+  stamina: 10
 --- !u!212 &212322973168416404
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float strength;
     public float boost;
     public float stamina;
-    public float coco;
+
 
     private Rigidbody2D rgbd;
     private Vector2 movement;
@@ -15,25 +15,25 @@ public class PlayerController : MonoBehaviour {
     private float i;
     private float iStamina;
     private float indivBoost;
+    private float clock;
 
     // Use this for initialization
     void Start () {
         rgbd = GetComponent<Rigidbody2D>();
         iStamina = stamina;
-        strength = strength / Mathf.Pow(coco, 1);
-        rgbd.mass = rgbd.mass / Mathf.Pow(coco, -1);
-        indivBoost = stamina / 10;
+        indivBoost = stamina;
+        clock = 0;
 
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (Input.GetKey(KeyCode.V) && iStamina != 2000 && indivBoost >0)
+        if (Input.GetKey(KeyCode.V) && iStamina > 0 && indivBoost >0)
         {
             //Handle dash (interrupt walking)
             Dash();
             indivBoost = indivBoost - 1;
-            if (indivBoost == stamina/10 - 1)
+            if (indivBoost == stamina - 1)
             {
                 iStamina = iStamina - 1;
             }
@@ -41,11 +41,22 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.V)==false)
         {
-            indivBoost = stamina / 10;
+            indivBoost = stamina;
+            if (clock < 2)
+            {
+                clock = clock + Time.deltaTime;
+            }
+            else
+            {
+                clock = 0;
+                iStamina = iStamina + 1;
+                if (iStamina > stamina) { iStamina = stamina; }
+                //Debug.Log(iStamina);
+            }
         }
         //Handle regular walking
         Move();
-        Debug.Log(rgbd.velocity.magnitude);
+        //Debug.Log(rgbd.velocity.magnitude);
         
     }
 
