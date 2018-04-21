@@ -955,6 +955,16 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1038010661}
+    - target: {fileID: 114316562791720578, guid: 724dc333076757f45a24784101335325,
+        type: 2}
+      propertyPath: positionOffset.x
+      value: 0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 212058007155090430, guid: 724dc333076757f45a24784101335325,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 724dc333076757f45a24784101335325, type: 2}
   m_IsPrefabParent: 0

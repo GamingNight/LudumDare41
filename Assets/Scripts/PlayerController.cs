@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour {
             if (indivBoost == stamina - 1) {
                 iStamina = iStamina - 1;
             }
-            //Debug.Log(iStamina);
         }
         if (Input.GetKey(KeyCode.V) == false) {
             indivBoost = stamina;
@@ -47,13 +46,10 @@ public class PlayerController : MonoBehaviour {
                 clock = 0;
                 iStamina = iStamina + 1;
                 if (iStamina > stamina) { iStamina = stamina; }
-                //Debug.Log(iStamina);
             }
         }
         //Handle regular walking
         Move();
-        //Debug.Log(rgbd.velocity.magnitude);
-
     }
 
     private void Move() {
@@ -63,22 +59,14 @@ public class PlayerController : MonoBehaviour {
         if (horizontal != 0 || vertical != 0) {
             movement.Set(horizontal, vertical);
             rgbd.AddForce(movement.normalized * strength);
-            //    if (vertical < 0)
-            //    {
-            //        animator.SetInteger("walking", 1);
-            //        lastWalkingAnimationState = 1;
-            //    }
-            //    else if (vertical > 0)
-            //    {
-            //        animator.SetInteger("walking", -1);
-            //        lastWalkingAnimationState = -1;
-            //    }
-            //    else
-            //    {
-            //        animator.SetInteger("walking", lastWalkingAnimationState);
-            //    }
-            animator.SetInteger("walkState", 1);
-            spriteRenderer.flipX = horizontal < 0;
+            if (vertical < 0) {
+                animator.SetInteger("walkState", 2);
+            } else if (vertical > 0) {
+                animator.SetInteger("walkState", -1);
+            } else {
+                animator.SetInteger("walkState", 1);
+            }
+            spriteRenderer.flipX = horizontal < 0 && vertical <= 0 || horizontal > 0 && vertical > 0;
             //    if (!walkAudioSource.isPlaying)
             //        walkAudioSource.Play();
         } else {
