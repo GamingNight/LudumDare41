@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
         if (horizontal != 0 || vertical != 0) {
             movement.Set(horizontal, vertical);
             rgbd.AddForce(movement.normalized * strength);
-            if (vertical < 0) {
+            if (vertical < 0 && horizontal == 0) {
                 animator.SetInteger("walkState", 2);
             } else if (vertical > 0) {
                 animator.SetInteger("walkState", -1);
