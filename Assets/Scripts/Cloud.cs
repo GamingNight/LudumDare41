@@ -4,61 +4,24 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
+    public GameObject ball;
 
     SpriteRenderer spriteRender;
-    bool lerpIn = false;
-    bool lerpOut = false;
-    public float lerpDuration = 1;
-    private float lerpTime = 0;
-
+    private float ballCircleColliderRadius;
 
     void Start()
     {
         spriteRender = GetComponent<SpriteRenderer>();
+        ballCircleColliderRadius = ball.GetComponent<CircleCollider2D>().radius;
+        transform.Rotate(0f, 0f, Random.value * 360f);
+        float randomScale = Random.value * 0.3f;
+        transform.localScale = new Vector3(1 - randomScale, 1 - randomScale, 1 - randomScale);
     }
 
     void Update()
     {
-        if (lerpIn)
-        {
-            lerpTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(spriteRender.color.a, 0, lerpTime / lerpDuration);
-            spriteRender.color = new Color(1, 1, 1, alpha);
-            if (lerpTime >= 1)
-            {
-                lerpTime = 0;
-                lerpIn = false;
-            }
-        }
+        float alpha = Mathf.Min((transform.position - ball.transform.position).magnitude - ballCircleColliderRadius / 7f, ballCircleColliderRadius) / ballCircleColliderRadius;
+        spriteRender.color = new Color(1, 1, 1, alpha);
 
-        if (lerpOut)
-        {
-            lerpTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(spriteRender.color.a, 1, lerpTime / lerpDuration);
-            spriteRender.color = new Color(1, 1, 1, alpha);
-            if (lerpTime >= 1)
-            {
-                lerpTime = 0;
-                lerpOut = false;
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Ball")
-        {
-            lerpIn = true;
-            lerpOut = false;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Ball")
-        {
-            lerpOut = true;
-            lerpIn = false;
-        }
     }
 }
