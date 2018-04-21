@@ -430,6 +430,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f514e90da62d7944aa6f3788b349c37, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &339223015 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1342933708523166, guid: 724dc333076757f45a24784101335325,
+    type: 2}
+  m_PrefabInternal: {fileID: 1494383492}
+--- !u!114 &339223023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339223015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1874f18e45da4234993e3f01c66b37b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &340108190
 Prefab:
   m_ObjectHideFlags: 0
@@ -965,6 +981,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 114754847214879286, guid: 724dc333076757f45a24784101335325,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1038010661}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 724dc333076757f45a24784101335325, type: 2}
   m_IsPrefabParent: 0
@@ -1161,6 +1182,11 @@ Prefab:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114071070117225834, guid: 05aed7493178de54e8c3087ab5c6f36a,
+        type: 2}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 339223015}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
   m_IsPrefabParent: 0
