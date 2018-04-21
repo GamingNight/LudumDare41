@@ -22,33 +22,37 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("A dragball update = " + dragBall);
-        if (Input.GetKey(KeyCode.Space) == true)
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(KeyCode.Space) == true && (horizontal != 0 || vertical != 0))
         {
             pass = true;
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
-            rgbd.velocity = speed * new Vector2(horizontal, vertical); // la balle est lancée
-            player.GetComponent<PlayerController>().enabled = false; // le player n'est plus le joueur anymore
-            GetComponent<BallMagnetism>().enabled = false;// la balle n'est plus aimantée à ce player
         }
         else
         {
             pass = false;
+        }
+        if (pass==true)
+        { 
+            rgbd.velocity = speed * new Vector2(horizontal, vertical); // la balle est lancée
+            player.GetComponent<PlayerController>().enabled = false; // le player n'est plus le joueur anymore
+            GetComponent<BallMagnetism>().enabled = false;// la balle n'est plus aimantée à ce player
         }
         if (dragBall == true) { rgbd.drag = rgbd.drag + slowBall * Time.deltaTime; }// la balle est freinée dans le child du receveur
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "PlayerBallCapture")
         {
             GetComponent<BallMagnetism>().enabled = true; //le receveur est aimanté à la balle
             dragBall = false; // le freinage de la balle est éteint
             rgbd.drag = 0; //idem
+            //pass = false;
         }
-        if (other.gameObject.tag == "PlayerCollider")
+        if (other.gameObject.tag == "PlayerCollider" && player.GetComponent<PlayerController>().enabled == false)
         {
+            Debug.Log("pommier");
             dragBall = true; // activation du freinage de la balle
             other.transform.parent.GetComponent<PlayerController>().enabled = true; // le receveur est le nouveau joueur
             GetComponent<BallMagnetism>().player = other.transform.parent.gameObject; // la balle est aimantée à ce player
