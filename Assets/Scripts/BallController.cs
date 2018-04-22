@@ -6,11 +6,11 @@ public class BallController : MonoBehaviour {
 
     public GameObject player;
     public float slowBall;
+    public bool dragBall = false;
 
     private Rigidbody2D rgbd;
     private BallMagnetism ballMagnetism;
     private bool pass;
-    private bool dragBall = false;
     private float dragInit;
 
     void Start() {
