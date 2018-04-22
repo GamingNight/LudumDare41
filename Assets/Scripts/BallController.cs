@@ -19,6 +19,11 @@ public class BallController : MonoBehaviour {
         dragInit = rgbd.drag;
     }
 
+    public void UpdatePlayer(GameObject newPlayer)
+    {
+        player = newPlayer;
+    }
+
     void Update() {
         if (dragBall) {
             // la balle est freinée dans le child du receveur
@@ -35,8 +40,6 @@ public class BallController : MonoBehaviour {
         }
         if (other.gameObject.tag == "PlayerCollider") {
             dragBall = true; // activation du freinage de la balle
-            ballMagnetism.player = other.transform.parent.gameObject; // la balle est aimantée à ce player
-            player = other.transform.parent.gameObject; // le nouveau player de ce script est officiellement ce player.
         }
     }
 }

@@ -2,18 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldOfViewTrigger : MonoBehaviour {
+public class FieldOfViewTrigger : MonoBehaviour
+{
 
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
+    private GameObject player;
 
-    private void Start() {
+    private void Start()
+    {
 
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    public void UpdatePlayer(GameObject newPlayer)
+    {
+        player = newPlayer;
+    }
 
-        if (collision.gameObject.tag == "Player") {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject == player)
+        {
             spriteRenderer.color = new Color(1, 128f / 255, 128f / 255);
             //Deactivate patrol, activate attack
             if (transform.parent.gameObject.GetComponent<OpponentControllerPatrol>() != null)
