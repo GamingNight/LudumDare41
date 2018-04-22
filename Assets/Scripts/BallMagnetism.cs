@@ -12,10 +12,9 @@ public class BallMagnetism : MonoBehaviour {
     private Rigidbody2D playerRgbd;
 
     private Vector2 speed;
-    private int playerSortingOrder;
-
     private float prevVerticalMove;
     private float prevHorizontalMove;
+    private bool isMovingWithPlayer;
 
 
     void Start() {
@@ -24,9 +23,9 @@ public class BallMagnetism : MonoBehaviour {
         ballSprite = GetComponent<SpriteRenderer>();
         playerSprite = player.GetComponent<SpriteRenderer>();
         playerRgbd = player.GetComponent<Rigidbody2D>();
-        playerSortingOrder = playerSprite.sortingOrder;
         prevVerticalMove = 0;
         prevHorizontalMove = 0;
+        isMovingWithPlayer = false;
     }
 
     void Update() {
@@ -41,6 +40,7 @@ public class BallMagnetism : MonoBehaviour {
             transform.position = playerPos + new Vector2(xOffset, yOffset);
             prevVerticalMove = vertical;
             prevHorizontalMove = horizontal;
+            isMovingWithPlayer = true;
         } else {
             Vector2 offset = positionOffset;
             if (prevHorizontalMove != 0)
@@ -49,6 +49,12 @@ public class BallMagnetism : MonoBehaviour {
                 offset.x *= -1;
             }
             transform.position = playerPos + offset;
+            isMovingWithPlayer = false;
         }
+    }
+
+    public bool IsMovingWithPlayer() {
+
+        return isMovingWithPlayer;
     }
 }
