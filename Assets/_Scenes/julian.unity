@@ -1636,51 +1636,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114071070117225834, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: ball
-      value: 
-      objectReference: {fileID: 339223015}
-    - target: {fileID: 114428754976121606, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: ball
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114449619254860748, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 58562720829001330, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114428754976121606, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114428754976121606, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114428754976121606, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: goalKeeper
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 58195501034221324, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61443627419533952, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
   m_IsPrefabParent: 0
