@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour {
             }
             indivBoost = 0;
             ballMagnetism.enabled = false;
+            animator.SetBool("hasBall", false);
         }
         if (!Input.GetKey(KeyCode.V)) {
             indivBoost = stamina;

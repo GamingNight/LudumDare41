@@ -31,10 +31,10 @@ public class BallController : MonoBehaviour {
             ballMagnetism.enabled = true; //le receveur est aimanté à la balle
             dragBall = false; // le freinage de la balle est éteint
             rgbd.drag = dragInit; //remet le freinage à 0
+            player.GetComponent<Animator>().SetBool("hasBall", true);
         }
         if (other.gameObject.tag == "PlayerCollider") {
             dragBall = true; // activation du freinage de la balle
-            Debug.Log("pommier");
             ballMagnetism.player = other.transform.parent.gameObject; // la balle est aimantée à ce player
             player = other.transform.parent.gameObject; // le nouveau player de ce script est officiellement ce player.
         }
