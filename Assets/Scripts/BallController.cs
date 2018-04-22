@@ -43,20 +43,16 @@ public class BallController : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        
+        if (other.gameObject.tag == "PlayerBallCapture") {
+            ballMagnetism.enabled = true; //le receveur est aimanté à la balle
+            dragBall = false; // le freinage de la balle est éteint
+            rgbd.drag = dragInit; //remet le freinage à 0
+        }
         if (other.gameObject.tag == "PlayerCollider" && !player.GetComponent<PlayerController>().enabled) {
             dragBall = true; // activation du freinage de la balle
             other.transform.parent.GetComponent<PlayerController>().enabled = true; // le receveur est le nouveau joueur
             ballMagnetism.player = other.transform.parent.gameObject; // la balle est aimantée à ce player
             player = other.transform.parent.gameObject; // le nouveau player de ce script est officiellement ce player.
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D other) {
-        if (other.gameObject.tag == "PlayerBallCapture") {
-            ballMagnetism.enabled = true; //le receveur est aimanté à la balle
-            dragBall = false; // le freinage de la balle est éteint
-            rgbd.drag = dragInit; //remet le freinage à 0
         }
     }
 }
