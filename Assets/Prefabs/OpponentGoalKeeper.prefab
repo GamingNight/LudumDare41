@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 114211123517094760}
   - component: {fileID: 95626205421542192}
   m_Layer: 0
-  m_Name: OpponentScanAngle
+  m_Name: OpponentGoalKeeper
   m_TagString: Opponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

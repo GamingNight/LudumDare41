@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
     }
     void Start()
     {
-        GiveGameobjectsToNewPlayer();
+        //GiveGameobjectsToNewPlayer();
     }
     void Update()
     {
@@ -77,6 +77,7 @@ public class PlayerManager : MonoBehaviour
     {
         //player.GetComponent<PlayerController>().goalKeeper = goalKeeper;
         player.GetComponent<PlayerController>().cam = cam;
+        player.GetComponent<PlayerController>().ball = ball;
     }
 
     private void ShareANewPlayerHasCome(GameObject newPlayer)
