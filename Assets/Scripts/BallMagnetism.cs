@@ -39,7 +39,6 @@ public class BallMagnetism : MonoBehaviour {
             float xOffset = positionOffset.x * horizontal + 0.05f * (horizontal * 0.05f * (Mathf.Abs(vertical) == 1 ? 0.5f : 1));
             float yOffset = positionOffset.y + 0.05f * (vertical * 0.05f);
             transform.position = playerPos + new Vector2(xOffset, yOffset);
-            ballSprite.sortingOrder = vertical > 0 ? playerSortingOrder + 1 : playerSortingOrder - 1;
             prevVerticalMove = vertical;
             prevHorizontalMove = horizontal;
         } else {
