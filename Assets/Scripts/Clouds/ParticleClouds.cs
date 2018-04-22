@@ -20,6 +20,8 @@ public class ParticleClouds : MonoBehaviour
     void OnParticleTrigger()
     {
         // get the particles which matched the trigger conditions this frame
+        if (ps == null)
+            return;
         int numInside = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Inside, inside);
         int numOutside = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Outside, outside);
 

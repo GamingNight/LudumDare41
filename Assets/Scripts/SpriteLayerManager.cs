@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class SpriteLayerManager : MonoBehaviour {
 
-    public SpriteRenderer[] onFieldSprites;
-
+    private List<SpriteRenderer> onFieldSprites;
     private SpriteRenderer[] orderedSprites;
 
     private void Start() {
 
-        orderedSprites = new SpriteRenderer[onFieldSprites.Length];
+        onFieldSprites = new List<SpriteRenderer>();
     }
 
     void Update() {
 
-        for (int i = 0; i < onFieldSprites.Length; i++) {
+        onFieldSprites.Clear();
+        SpriteRenderer[] allSprites = FindObjectsOfType<SpriteRenderer>();
+        foreach (SpriteRenderer sprite in allSprites) {
+            if (sprite.sortingLayerName == "OnFieldObject")
+                onFieldSprites.Add(sprite);
+        }
+
+        orderedSprites = new SpriteRenderer[onFieldSprites.Count];
+        for (int i = 0; i < onFieldSprites.Count; i++) {
             SpriteRenderer sprite = onFieldSprites[i];
             int j = 0;
             bool ordered = false;
