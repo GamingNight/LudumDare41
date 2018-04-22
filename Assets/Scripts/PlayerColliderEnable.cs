@@ -7,12 +7,10 @@ public class PlayerColliderEnable : MonoBehaviour {
     public GameObject ball;
     private float distBall;
 
-	// Use this for initialization
 	void Start () {
 
     }
 	
-	// Update is called once per frame
 	void Update () {
         if (GetComponent<PlayerController>().enabled == false)
         {

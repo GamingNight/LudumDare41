@@ -8,16 +8,19 @@ public class PlayerController : MonoBehaviour {
         IDLE = 0, SIDE_WALK = 1, BACK_WALK = -1, FRONT_WALK = 2
     }
 
+    public GameObject ball;
     public float strength;
     public float boost;
     public float stamina;
+    public float indivBoostMax;
 
     private Rigidbody2D rgbd;
+    private Rigidbody2D rgbdBall;
+    private BallMagnetism ballMagnetism;
     private Vector2 movement;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private float drag;
-    private float i;
     private float iStamina;
     private float indivBoost;
     private float clock;
@@ -25,31 +28,42 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         rgbd = GetComponent<Rigidbody2D>();
+        rgbdBall = ball.GetComponent<Rigidbody2D>();
+        ballMagnetism = ball.GetComponent<BallMagnetism>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         iStamina = stamina;
-        indivBoost = stamina;
+        indivBoost = 0;
+        indivBoostMax = 100;
         clock = 0;
         animState = AnimationState.IDLE;
     }
 
     void FixedUpdate() {
-        if (Input.GetKey(KeyCode.V) && iStamina > 0 && indivBoost > 0) {
+        if (Input.GetKey(KeyCode.V) && iStamina < 100000 && indivBoost < indivBoostMax) {
             //Handle dash (interrupt walking)
+            indivBoost = indivBoost + 1;
             Dash();
-            indivBoost = indivBoost - 1;
-            if (indivBoost == stamina - 1) {
-                iStamina = iStamina - 1;
-            }
         }
-        if (Input.GetKey(KeyCode.V) == false) {
+        if (Input.GetKeyUp(KeyCode.V)) {
+            iStamina = iStamina - indivBoost;
+            if (ballMagnetism.enabled) {
+                Vector2 addvelocity = new Vector2(movement.x * Mathf.Abs(rgbd.velocity.x), movement.y * Mathf.Abs(rgbd.velocity.y));
+                rgbdBall.velocity = rgbd.velocity / 1.2f + addvelocity * strength * boost * (indivBoost / indivBoostMax) / 3f;
+            }
+            indivBoost = 0;
+            ballMagnetism.enabled = false;
+        }
+        if (!Input.GetKey(KeyCode.V)) {
             indivBoost = stamina;
             if (clock < 2) {
                 clock = clock + Time.deltaTime;
             } else {
                 clock = 0;
-                iStamina = iStamina + 1;
-                if (iStamina > stamina) { iStamina = stamina; }
+                iStamina = iStamina + indivBoostMax;
+                if (iStamina > stamina) {
+                    iStamina = stamina;
+                }
             }
         }
         //Handle regular walking
@@ -90,31 +104,7 @@ public class PlayerController : MonoBehaviour {
         float vertical = Input.GetAxisRaw("Vertical");
         if (horizontal != 0 || vertical != 0) {
             movement.Set(horizontal, vertical);
-            //            rgbd.velocity = rgbd.velocity + movement.normalized * boost;
             rgbd.AddForce(movement.normalized * strength * boost);
         }
-        //    if (vertical < 0)
-        //    {
-        //        animator.SetInteger("walking", 1);
-        //        lastWalkingAnimationState = 1;
-        //    }
-        //    else if (vertical > 0)
-        //    {
-        //        animator.SetInteger("walking", -1);
-        //        lastWalkingAnimationState = -1;
-        //    }
-        //    else
-        //    {
-        //        animator.SetInteger("walking", lastWalkingAnimationState);
-        //    }
-        //    spriteRenderer.flipX = horizontal < 0;
-        //    if (!walkAudioSource.isPlaying)
-        //        walkAudioSource.Play();
-        //}
-        //else
-        //{
-        //    walkAudioSource.Stop();
-        //    animator.SetInteger("walking", 0);
-        //}
     }
 }
