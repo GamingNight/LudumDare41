@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
         return instance;
     }
 
+    public GameObject goalKeeper;
     public GameObject player;
     public Camera cam;
     public GameObject ball;
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
         if (instance == null)
             instance = this;
         ShareANewPlayerHasCome(player);
+        GiveGameobjectsToNewPlayer();
     }
 
     void Update()
@@ -42,6 +44,7 @@ public class PlayerManager : MonoBehaviour
         if (ally == null)
         {
             Vector3 pos = new Vector3(-1, 1, 0);
+            cam.GetComponent<CameraZoom>().size = 1.4f;
             ally = Instantiate<GameObject>(prefabPlayer, player.transform.position + pos, Quaternion.identity);
             ally.GetComponent<PlayerController>().ball = ball;
             ally.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 0f);
@@ -54,8 +57,21 @@ public class PlayerManager : MonoBehaviour
         {
             ally.GetComponent<AllySpeed>().enabled = false; // le receveur n'accélère plus tout seul
             ally.GetComponent<PlayerController>().enabled = true; // le receveur est le nouveau joueur
+            cam.GetComponent<CameraZoom>().size = 0.72f;
             ShareANewPlayerHasCome(ally);
             ally = null;
+        }
+        else
+        {
+            Debug.Log("Fin du Game, lol une passe sans allié");
+        }
+    }
+
+    public void GiveGameobjectsToNewPlayer()
+    {
+        if (ally != null)
+        {
+            player.GetComponent<PlayerController>().goalKeeper = goalKeeper;
         }
         else
         {

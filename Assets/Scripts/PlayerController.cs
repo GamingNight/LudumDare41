@@ -186,5 +186,6 @@ public class PlayerController : MonoBehaviour
         ballMagnetism.enabled = false;// la balle n'est plus aimantée à ce player
         //Ce personnage n'est plus le player désormais
         PlayerManager.GetInstance().SetAllyAsNewPlayer();
+        PlayerManager.GetInstance().GiveGameobjectsToNewPlayer();
     }
 }

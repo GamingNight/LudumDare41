@@ -264,10 +264,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
+  goalKeeper: {fileID: 0}
   strength: 0.3
   boost: 5
   stamina: 10
   indivBoostMax: 0
+  passKickSpeed: 2
+  shootMaxPower: 100
 --- !u!114 &114449619254860748
 MonoBehaviour:
   m_ObjectHideFlags: 1
