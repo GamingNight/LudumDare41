@@ -85,6 +85,7 @@ public class OpponentControllerAttack : MonoBehaviour {
         //Stop attacking when player is reached
         if (collision.gameObject == player) {
             attack = false;
+            GameManager.GetInstance().GameOver();
         }
     }
 }
