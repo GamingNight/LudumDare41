@@ -25,7 +25,7 @@ public class FieldOfViewTrigger : MonoBehaviour
         if (collision.gameObject == player)
         {
             PlayerManager.GetInstance().InstantiateAlly();
-            spriteRenderer.color = new Color(1, 128f / 255, 128f / 255);
+            spriteRenderer.color = new Color(154f / 255, 41f / 255, 28f / 255);
             //Deactivate patrol, activate attack
             if (transform.parent.gameObject.GetComponent<OpponentControllerPatrol>() != null)
                 transform.parent.gameObject.GetComponent<OpponentControllerPatrol>().enabled = false;

@@ -2,67 +2,88 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpponentControllerAttack : MonoBehaviour
-{
+public class OpponentControllerAttack : MonoBehaviour {
 
-    public float speed;
+    public enum AnimationState {
 
-    private GameObject player;
-    private bool attack;
-    private float attackLerpRatio;
-
-    private void Start()
-    {
-        attack = true;
-        attackLerpRatio = 0f;
+        WALK_FRONT_SIDE = 0, WALK_FRONT = 1, WALK_BACK = -1
     }
 
-    public void UpdatePlayer(GameObject newPlayer)
-    {
+    public float speed;
+    public GameObject fieldOfViewTrigger;
+
+    private GameObject player;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    private bool attack;
+    private float attackLerpRatio;
+    private AnimationState animState;
+
+    private void Start() {
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        attack = true;
+        attackLerpRatio = 0f;
+        animState = AnimationState.WALK_FRONT;
+    }
+
+    public void UpdatePlayer(GameObject newPlayer) {
         player = newPlayer;
-        foreach (Transform child in transform)
-        {
-            if (child.gameObject.tag == "OpponentFieldOfView")
-            {
+        foreach (Transform child in transform) {
+            if (child.gameObject.tag == "OpponentFieldOfView") {
                 child.GetComponent<FieldOfViewTrigger>().UpdatePlayer(newPlayer);
             }
         }
     }
 
-    void Update()
-    {
+    void Update() {
 
-        if (attack)
-        {
-
-            //2D Look at
+        if (attack) {
+            //Field of view 2D Look at
             attackLerpRatio += Time.deltaTime / 2f;
-            if (attackLerpRatio < 1)
-            {
+            if (attackLerpRatio < 1) {
                 Vector3 difference = player.transform.position - transform.position;
                 float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
                 Quaternion lerpQ = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, rotationZ), attackLerpRatio);
-                transform.rotation = lerpQ;
-            }
-            else
-            {
+                fieldOfViewTrigger.transform.rotation = lerpQ;
+            } else {
                 Vector3 difference = player.transform.position - transform.position;
                 float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+                fieldOfViewTrigger.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
             }
 
             //Translation to player's position
             Vector2 attackDirection = (player.transform.position - transform.position).normalized;
             Vector3 translation = new Vector3(attackDirection.x * speed * Time.deltaTime, attackDirection.y * speed * Time.deltaTime, 0f);
             transform.Translate(translation, Space.World);
+
+            UpdateAnimation(attackDirection);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+    private void UpdateAnimation(Vector2 attackDirection) {
+
+        animator.SetBool("walk", true);
+
+        float x = attackDirection.x;
+        float y = attackDirection.y;
+        if (Mathf.Abs(x) < Mathf.Abs(y)) {
+            if (y > 0) {
+                animState = AnimationState.WALK_BACK;
+            } else {
+                animState = AnimationState.WALK_FRONT;
+            }
+        } else {
+            animState = AnimationState.WALK_FRONT_SIDE;
+        }
+        animator.SetInteger("direction", (int)animState);
+
+        spriteRenderer.flipX = x > 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
         //Stop attacking when player is reached
-        if (collision.gameObject == player)
-        {
+        if (collision.gameObject == player) {
             attack = false;
         }
     }

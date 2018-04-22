@@ -57,7 +57,7 @@ MonoBehaviour:
   ball: {fileID: 0}
   prefabPlayer: {fileID: 1362360057694898, guid: 05aed7493178de54e8c3087ab5c6f36a,
     type: 2}
-  ballSpeed: 2
+  ballSpeed: 0
 --- !u!114 &114580805734532918
 MonoBehaviour:
   m_ObjectHideFlags: 1

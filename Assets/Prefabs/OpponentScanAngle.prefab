@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 61341100199448330}
   - component: {fileID: 114646724258550762}
   - component: {fileID: 114211123517094760}
+  - component: {fileID: 95626205421542192}
   m_Layer: 0
   m_Name: OpponentScanAngle
   m_TagString: Opponent
@@ -56,27 +57,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313225938462954}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 5.5, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 5.2, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4601518460661596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &4601518460661596
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1251450020119296}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.5224984, w: 0.8526403}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4600168779543046}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -63}
 --- !u!50 &50221455285416290
 Rigidbody2D:
   serializedVersion: 4
@@ -132,8 +133,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.01}
+    pivot: {x: 0, y: 0.5}
+    oldSize: {x: 0.975, y: 0.96875}
     newSize: {x: 1, y: 1.01}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -141,11 +142,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.5, y: 0}
-      - {x: 0.37, y: -0.5}
-      - {x: 0.48, y: -0.2}
-      - {x: 0.48, y: 0.2}
-      - {x: 0.37, y: 0.5}
+    - - {x: 0.8207263, y: 0.26318333}
+      - {x: 0.7452724, y: 0.42849186}
+      - {x: 0.021697193, y: 0.055065487}
+      - {x: 0.008305013, y: -0.046225093}
+      - {x: 0.7487135, y: -0.42988396}
+      - {x: 0.81116515, y: -0.1729151}
 --- !u!61 &61341100199448330
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -169,8 +171,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 0.035, y: 0.2}
   m_EdgeRadius: 0
+--- !u!95 &95626205421542192
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313225938462954}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e38259debde5eaa4d9bc430444c0c0eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114211123517094760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7e2342d4c65a84790372878db2be22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldOfViewTrigger: {fileID: 1251450020119296}
   movementPeriod: 0.03
   angleStep: 5
   scanAngle: 180
@@ -199,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  fieldOfViewTrigger: {fileID: 1251450020119296}
 --- !u!114 &114797267518738356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,8 +265,8 @@ SpriteRenderer:
   m_SortingLayerID: 2053169923
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f3c7c0f556aebfc4bbcb2dd8e85c136c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0445898e99fb296438fb50db0580b279, type: 3}
+  m_Color: {r: 0.93333334, g: 0.61960787, b: 0.05490196, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -291,7 +312,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 126e868088b34d544a385f1e7546896a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
