@@ -33,7 +33,10 @@ public class PlayerManager : MonoBehaviour
         GiveGameobjectsToNewPlayer();
         allyNum = 0;
     }
-
+    void Start()
+    {
+        GiveGameobjectsToNewPlayer();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
@@ -73,14 +76,8 @@ public class PlayerManager : MonoBehaviour
 
     public void GiveGameobjectsToNewPlayer()
     {
-        if (ally != null)
-        {
-            player.GetComponent<PlayerController>().goalKeeper = goalKeeper;
-        }
-        else
-        {
-            Debug.Log("Fin du Game, lol une passe sans allié");
-        }
+        player.GetComponent<PlayerController>().goalKeeper = goalKeeper;
+        player.GetComponent<PlayerController>().cam = cam;
     }
 
     private void ShareANewPlayerHasCome(GameObject newPlayer)

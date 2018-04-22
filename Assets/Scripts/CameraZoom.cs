@@ -17,11 +17,11 @@ public class CameraZoom : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float sized = GetComponent<Camera>().orthographicSize;
-		if (size != sized)
+		if (Mathf.Abs(size-sized) > 0.01f)
         {
-            Debug.Log("pommier2"+size);
             GetComponent<Camera>().orthographicSize = Mathf.Lerp(sized, size, t);
-            t = t + Time.deltaTime*0.05f;
+            t = t + Time.deltaTime*0.1f;
         }
+        else { t = 0; }
 	}
 }

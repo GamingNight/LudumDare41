@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
         IDLE = 0, SIDE_WALK = 1, BACK_WALK = -1, FRONT_WALK = 2
     }
 
+    public Camera cam;
     public GameObject ball;
     public GameObject goalKeeper;
     public float strength;
@@ -101,13 +102,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.R) && ballMagnetism.enabled)
         {
             shootCharge = shootCharge + 1;
-            Debug.Log(shootCharge);
             shootCharge = Mathf.Min(shootCharge, shootMaxPower);
             PlayerManager.GetInstance().ScoringPoints = shootCharge;
+            animator.SetInteger("shootState", (int)1);
         }
         //Handle Shoot
         if (Input.GetKeyUp(KeyCode.R) && ballMagnetism.enabled)
         {
+            cam.GetComponent<CameraFollow>().target = ball.transform;
+            animator.SetInteger("shootState", (int)2);
             Shoot(shootCharge/shootMaxPower);
             shootCharge = 0;
         }
