@@ -11,11 +11,13 @@ public class PlayerController : MonoBehaviour
     }
 
     public GameObject ball;
+    public GameObject goalKeeper;
     public float strength;
     public float boost;
     public float stamina;
     public float indivBoostMax;
     public float passKickSpeed = 2;
+    public float shootMaxPower;
 
     private Rigidbody2D rgbd;
     private Rigidbody2D rgbdBall;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private float indivBoost;
     private float clock;
     private AnimationState animState;
+    private float shootCharge;
 
     void Start()
     {
@@ -83,13 +86,30 @@ public class PlayerController : MonoBehaviour
             }
         }
         //Handle regular walking
-        Move(horizontal, vertical);
+        if (!Input.GetKey(KeyCode.R))
+        {
+            Move(horizontal, vertical);
+        }
 
         //Handle pass
         bool isMoving = horizontal != 0 || vertical != 0;
         if (Input.GetKey(KeyCode.Space) && isMoving && ballMagnetism.enabled)
         {
             Pass(horizontal, vertical);
+        }
+        //Handle Shoot charge
+        if (Input.GetKey(KeyCode.R) && ballMagnetism.enabled)
+        {
+            shootCharge = shootCharge + 1;
+            Debug.Log(shootCharge);
+            shootCharge = Mathf.Min(shootCharge, shootMaxPower);
+            PlayerManager.GetInstance().ScoringPoints = shootCharge;
+        }
+        //Handle Shoot
+        if (Input.GetKeyUp(KeyCode.R) && ballMagnetism.enabled)
+        {
+            Shoot(shootCharge/shootMaxPower);
+            shootCharge = 0;
         }
     }
 
@@ -140,6 +160,14 @@ public class PlayerController : MonoBehaviour
             movement.Set(horizontal, vertical);
             rgbd.AddForce(movement.normalized * strength * boost);
         }
+    }
+
+    private void Shoot(float shootStrength)
+    {
+        ball.GetComponent<BallController>().dragBall = false;
+        ballMagnetism.enabled = false;// la balle n'est plus aimantée à ce player
+        ball.GetComponent<ShootTrajectory>().enabled = true;
+        ball.GetComponent<ShootTrajectory>().shootStrength=shootStrength;
     }
 
     private void Pass(float horizontal, float vertical)

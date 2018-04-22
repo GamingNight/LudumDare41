@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject ball;
     public GameObject prefabPlayer;
     public float ballSpeed;
+    public float ScoringPoints = 0;
 
     private GameObject ally;
     private float horizontal;
@@ -38,10 +39,13 @@ public class PlayerManager : MonoBehaviour
 
     public void InstantiateAlly()
     {
-        Vector3 pos = new Vector3(-1, 1, 0);
-        ally = Instantiate<GameObject>(prefabPlayer, player.transform.position + pos, Quaternion.identity);
-        ally.GetComponent<PlayerController>().ball = ball;
-        ally.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 0f);
+        if (ally == null)
+        {
+            Vector3 pos = new Vector3(-1, 1, 0);
+            ally = Instantiate<GameObject>(prefabPlayer, player.transform.position + pos, Quaternion.identity);
+            ally.GetComponent<PlayerController>().ball = ball;
+            ally.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 0f);
+        }
     }
 
     public void SetAllyAsNewPlayer()
@@ -51,6 +55,7 @@ public class PlayerManager : MonoBehaviour
             ally.GetComponent<AllySpeed>().enabled = false; // le receveur n'accélère plus tout seul
             ally.GetComponent<PlayerController>().enabled = true; // le receveur est le nouveau joueur
             ShareANewPlayerHasCome(ally);
+            ally = null;
         }
         else
         {
