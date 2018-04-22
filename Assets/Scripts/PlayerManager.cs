@@ -18,10 +18,12 @@ public class PlayerManager : MonoBehaviour
     public GameObject prefabPlayer;
     public float ballSpeed;
     public float ScoringPoints = 0;
+    public float NumPassMax;
 
     private GameObject ally;
     private float horizontal;
     private float vertical;
+    private int allyNum;
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class PlayerManager : MonoBehaviour
             instance = this;
         ShareANewPlayerHasCome(player);
         GiveGameobjectsToNewPlayer();
+        allyNum = 0;
     }
 
     void Update()
@@ -41,13 +44,14 @@ public class PlayerManager : MonoBehaviour
 
     public void InstantiateAlly()
     {
-        if (ally == null)
+        if (ally == null && allyNum < NumPassMax)
         {
             Vector3 pos = new Vector3(-1, 1, 0);
             cam.GetComponent<CameraZoom>().size = 1.4f;
             ally = Instantiate<GameObject>(prefabPlayer, player.transform.position + pos, Quaternion.identity);
             ally.GetComponent<PlayerController>().ball = ball;
             ally.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 0f);
+            allyNum = allyNum + 1;
         }
     }
 

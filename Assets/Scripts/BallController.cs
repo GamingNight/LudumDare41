@@ -37,6 +37,7 @@ public class BallController : MonoBehaviour {
             dragBall = false; // le freinage de la balle est éteint
             rgbd.drag = dragInit; //remet le freinage à 0
             player.GetComponent<Animator>().SetBool("hasBall", true);
+            player.GetComponent<Collider2D>().enabled = true;
         }
         if (other.gameObject.tag == "PlayerCollider") {
             dragBall = true; // activation du freinage de la balle
