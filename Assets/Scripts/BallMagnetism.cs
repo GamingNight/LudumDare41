@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallMagnetism : MonoBehaviour {
 
     public Vector2 positionOffset = new Vector2(0.05f, -0.05f);
+    public float amplitude=1;
 
     private GameObject player;
     private SpriteRenderer ballSprite;
@@ -40,8 +41,8 @@ public class BallMagnetism : MonoBehaviour {
         if (horizontal != 0 || vertical != 0) {
             speed = playerRgbd.velocity;
             float speedModule = speed.magnitude;
-            float xOffset = positionOffset.x * horizontal + 0.05f * (horizontal * 0.05f * (Mathf.Abs(vertical) == 1 ? 0.5f : 1));
-            float yOffset = positionOffset.y + 0.05f * (vertical * 0.05f);
+            float xOffset = positionOffset.x * horizontal + Mathf.Pow(speedModule,3) * amplitude * (horizontal * 0.05f * (Mathf.Abs(vertical) == 1 ? 0.5f : 1));
+            float yOffset = positionOffset.y + Mathf.Pow(speedModule, 3) * amplitude* (vertical * 0.05f);
             transform.position = playerPos + new Vector2(xOffset, yOffset);
             prevVerticalMove = vertical;
             prevHorizontalMove = horizontal;
