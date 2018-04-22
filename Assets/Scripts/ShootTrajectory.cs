@@ -16,7 +16,7 @@ public class ShootTrajectory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float step = (shootStrength*5/iCollision + 1) * Time.deltaTime;
+        float step = (shootStrength*5/(iCollision+1) + 1) * Time.deltaTime;
         //Debug.Log(shootStrength);
         transform.position = Vector3.MoveTowards(transform.position, goalKeeper.transform.position, step);
     }

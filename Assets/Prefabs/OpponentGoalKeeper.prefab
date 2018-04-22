@@ -41,12 +41,12 @@ GameObject:
   - component: {fileID: 212681361154664860}
   - component: {fileID: 50221455285416290}
   - component: {fileID: 61341100199448330}
-  - component: {fileID: 114646724258550762}
   - component: {fileID: 114211123517094760}
   - component: {fileID: 95626205421542192}
+  - component: {fileID: 114140291954512398}
   m_Layer: 0
   m_Name: OpponentGoalKeeper
-  m_TagString: Opponent
+  m_TagString: OpponentGoalKeeper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,6 +190,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114140291954512398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313225938462954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e95fb155183f4d953bdb2396bb3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winPoints: 0
 --- !u!114 &114211123517094760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,19 +219,6 @@ MonoBehaviour:
   scanAngle: 180
   startClockwise: 1
   waitTimeBetweenScans: 1
---- !u!114 &114646724258550762
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1313225938462954}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2510a081ce49b643a0d7590f6c7da68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  fieldOfViewTrigger: {fileID: 1251450020119296}
 --- !u!114 &114797267518738356
 MonoBehaviour:
   m_ObjectHideFlags: 1

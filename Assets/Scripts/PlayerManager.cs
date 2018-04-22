@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     private float horizontal;
     private float vertical;
     private int allyNum;
+    private Vector3 pos;
 
     private void Awake()
     {
@@ -48,7 +49,25 @@ public class PlayerManager : MonoBehaviour
     {
         if (ally == null && allyNum < NumPassMax)
         {
-            Vector3 pos = new Vector3(-1, 1, 0);
+            if (player.transform.position.y < -3)
+            {
+                pos = new Vector3(-1, 1, 0);
+            }
+            else if (player.transform.position.y > 3.6)
+            {
+                pos = new Vector3(-1, -1, 0);
+            }
+            else
+            {
+                if (Random.value >= 0.5)
+                {
+                    pos = new Vector3(-1, 1, 0);
+                }
+                else
+                {
+                    pos = new Vector3(-1, -1, 0);
+                }
+            }
             cam.GetComponent<CameraZoom>().size = 1.4f;
             ally = Instantiate<GameObject>(prefabPlayer, player.transform.position + pos, Quaternion.identity);
             ally.GetComponent<PlayerController>().ball = ball;

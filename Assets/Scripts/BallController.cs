@@ -44,11 +44,15 @@ public class BallController : MonoBehaviour {
         if (other.gameObject.tag == "PlayerCollider") {
             dragBall = true; // activation du freinage de la balle
         }
-        if (other.gameObject.tag == "Opponent" && shootTrajectory.enabled == true)
-        {
-            shootTrajectory.iCollision = shootTrajectory.iCollision + 1;
-            float updateScoring = shootTrajectory.iCollision / (shootTrajectory.iCollision + 1);
-            PlayerManager.GetInstance().ScoringPoints = PlayerManager.GetInstance().ScoringPoints * updateScoring;
-        }
     }
+    //void OnTriggerStay2D(Collider2D other)
+    //{
+    //    if (other.gameObject.tag == "Opponent" && shootTrajectory.enabled == true)
+    //    {
+    //        shootTrajectory.iCollision = shootTrajectory.iCollision + 1;
+    //        Debug.Log("   it collided!");
+    //        float updateScoring = shootTrajectory.iCollision / (shootTrajectory.iCollision + 1);
+    //        PlayerManager.GetInstance().ScoringPoints = PlayerManager.GetInstance().ScoringPoints * updateScoring;
+    //    }
+    //}
 }

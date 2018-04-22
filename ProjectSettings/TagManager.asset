@@ -9,6 +9,7 @@ TagManager:
   - PlayerBallCapture
   - Opponent
   - OpponentFieldOfView
+  - OpponentGoalKeeper
   layers:
   - Default
   - TransparentFX
