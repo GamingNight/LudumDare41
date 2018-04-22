@@ -4,29 +4,33 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    public enum AnimationState {
+        IDLE = 0, SIDE_WALK = 1, BACK_WALK = -1, FRONT_WALK = 2
+    }
+
     public float strength;
     public float boost;
     public float stamina;
 
-
     private Rigidbody2D rgbd;
     private Vector2 movement;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private float drag;
     private float i;
     private float iStamina;
     private float indivBoost;
     private float clock;
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
+    private AnimationState animState;
 
-    // Use this for initialization
     void Start() {
         rgbd = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         iStamina = stamina;
         indivBoost = stamina;
         clock = 0;
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        animState = AnimationState.IDLE;
     }
 
     void FixedUpdate() {
@@ -59,20 +63,25 @@ public class PlayerController : MonoBehaviour {
         if (horizontal != 0 || vertical != 0) {
             movement.Set(horizontal, vertical);
             rgbd.AddForce(movement.normalized * strength);
-            if (vertical < 0 && horizontal == 0) {
-                animator.SetInteger("walkState", 2);
-            } else if (vertical > 0 && horizontal == 0) {
-                animator.SetInteger("walkState", -1);
-            } else {
-                animator.SetInteger("walkState", 1);
-            }
-            spriteRenderer.flipX = horizontal < 0 && vertical <= 0 || horizontal < 0 && vertical > 0;
-            //    if (!walkAudioSource.isPlaying)
-            //        walkAudioSource.Play();
-        } else {
-            //    walkAudioSource.Stop();
-            animator.SetInteger("walkState", 0);
         }
+        UpdateAnimation(horizontal, vertical);
+    }
+
+    private void UpdateAnimation(float horizontal, float vertical) {
+
+        if (horizontal != 0 || vertical != 0) {
+            if (vertical < 0 && horizontal == 0) {
+                animState = AnimationState.FRONT_WALK;
+            } else if (vertical > 0 && horizontal == 0) {
+                animState = AnimationState.BACK_WALK;
+            } else if (horizontal != 0) {
+                animState = AnimationState.SIDE_WALK;
+            }
+            spriteRenderer.flipX = horizontal < 0;
+        } else {
+            animState = AnimationState.IDLE;
+        }
+        animator.SetInteger("walkState", (int)animState);
     }
 
     private void Dash() {
