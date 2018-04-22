@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114978983392948870}
   m_Layer: 0
   m_Name: OpponentRotate
-  m_TagString: Untagged
+  m_TagString: Opponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 50516800191068602}
   m_Layer: 0
   m_Name: Field of view Trigger
-  m_TagString: Untagged
+  m_TagString: OpponentFieldOfView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2510a081ce49b643a0d7590f6c7da68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 1
 --- !u!114 &114978983392948870
 MonoBehaviour:

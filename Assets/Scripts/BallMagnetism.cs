@@ -28,6 +28,11 @@ public class BallMagnetism : MonoBehaviour {
         isMovingWithPlayer = false;
     }
 
+    public void UpdatePlayer(GameObject newPlayer)
+    {
+        player = newPlayer;
+    }
+
     void Update() {
         Vector2 playerPos = player.transform.position;
         float horizontal = Input.GetAxisRaw("Horizontal");

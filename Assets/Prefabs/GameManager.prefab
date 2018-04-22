@@ -54,6 +54,6 @@ MonoBehaviour:
   player: {fileID: 0}
   cam: {fileID: 0}
   ball: {fileID: 0}
-  PrefabPlayer: {fileID: 1362360057694898, guid: 05aed7493178de54e8c3087ab5c6f36a,
+  prefabPlayer: {fileID: 1362360057694898, guid: 05aed7493178de54e8c3087ab5c6f36a,
     type: 2}
-  speed: 2
+  ballSpeed: 2
