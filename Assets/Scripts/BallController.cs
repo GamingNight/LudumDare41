@@ -12,11 +12,14 @@ public class BallController : MonoBehaviour
     private bool pass;
     private Rigidbody2D rgbd;
     private bool dragBall = false;
+    private float dragInit;
 
     // Use this for initialization
     void Start()
     {
         rgbd = GetComponent<Rigidbody2D>();
+        dragInit = rgbd.drag;
+        Debug.Log(dragInit);
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class BallController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        if (Input.GetKey(KeyCode.Space) == true && (horizontal != 0 || vertical != 0))
+        if (Input.GetKey(KeyCode.Space) == true && (horizontal != 0 || vertical != 0) && GetComponent<BallMagnetism>().enabled ==true)
         {
             pass = true;
         }
@@ -33,7 +36,8 @@ public class BallController : MonoBehaviour
             pass = false;
         }
         if (pass==true)
-        { 
+        {
+            rgbd.drag = 0.3f;
             rgbd.velocity = speed * new Vector2(horizontal, vertical); // la balle est lancée
             player.GetComponent<PlayerController>().enabled = false; // le player n'est plus le joueur anymore
             GetComponent<BallMagnetism>().enabled = false;// la balle n'est plus aimantée à ce player
@@ -47,7 +51,7 @@ public class BallController : MonoBehaviour
         {
             GetComponent<BallMagnetism>().enabled = true; //le receveur est aimanté à la balle
             dragBall = false; // le freinage de la balle est éteint
-            rgbd.drag = 0; //idem
+            rgbd.drag = dragInit; //idem
             //pass = false;
         }
         if (other.gameObject.tag == "PlayerCollider" && player.GetComponent<PlayerController>().enabled == false)
