@@ -54,7 +54,7 @@ MonoBehaviour:
   player: {fileID: 0}
   cloud: {fileID: 1382870982613302, guid: 9f97938b307e43943b645ee82857d8aa, type: 2}
   safeZone: {fileID: 0}
-  spawnRadius: 2
+  spawnRadius: 2.5
   cloudPerStep: 200
   maxClouds: 2000
   spawnWait: 0.001

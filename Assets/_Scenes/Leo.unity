@@ -291,16 +291,6 @@ Prefab:
       propertyPath: safeZone
       value: 
       objectReference: {fileID: 725417696}
-    - target: {fileID: 114276592814522088, guid: 8449600edd642394eb23e64e99f90763,
-        type: 2}
-      propertyPath: maxClouds
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114276592814522088, guid: 8449600edd642394eb23e64e99f90763,
-        type: 2}
-      propertyPath: spawnRadius
-      value: 2.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8449600edd642394eb23e64e99f90763, type: 2}
   m_IsPrefabParent: 0
