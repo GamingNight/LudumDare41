@@ -10,6 +10,7 @@ public class BallController : MonoBehaviour {
     private GameObject player;
     private Rigidbody2D rgbd;
     private BallMagnetism ballMagnetism;
+    private ShootTrajectory shootTrajectory;
     private bool pass;
     private float dragInit;
 
@@ -17,6 +18,7 @@ public class BallController : MonoBehaviour {
         rgbd = GetComponent<Rigidbody2D>();
         ballMagnetism = GetComponent<BallMagnetism>();
         dragInit = rgbd.drag;
+        shootTrajectory=GetComponent<ShootTrajectory>();
     }
 
     public void UpdatePlayer(GameObject newPlayer)
@@ -41,6 +43,12 @@ public class BallController : MonoBehaviour {
         }
         if (other.gameObject.tag == "PlayerCollider") {
             dragBall = true; // activation du freinage de la balle
+        }
+        if (other.gameObject.tag == "Opponent" && shootTrajectory.enabled == true)
+        {
+            shootTrajectory.iCollision = shootTrajectory.iCollision + 1;
+            float updateScoring = shootTrajectory.iCollision / (shootTrajectory.iCollision + 1);
+            PlayerManager.GetInstance().ScoringPoints = PlayerManager.GetInstance().ScoringPoints * updateScoring;
         }
     }
 }

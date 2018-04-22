@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
 
     public Camera cam;
     public GameObject ball;
-    public GameObject goalKeeper;
     public float strength;
     public float boost;
     public float stamina;

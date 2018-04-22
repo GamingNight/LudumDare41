@@ -11,7 +11,6 @@ public class PlayerManager : MonoBehaviour
         return instance;
     }
 
-    public GameObject goalKeeper;
     public GameObject player;
     public Camera cam;
     public GameObject ball;
@@ -76,7 +75,7 @@ public class PlayerManager : MonoBehaviour
 
     public void GiveGameobjectsToNewPlayer()
     {
-        player.GetComponent<PlayerController>().goalKeeper = goalKeeper;
+        //player.GetComponent<PlayerController>().goalKeeper = goalKeeper;
         player.GetComponent<PlayerController>().cam = cam;
     }
 
