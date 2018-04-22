@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour {
 
-    public GameObject player;
     public float slowBall;
     public bool dragBall = false;
 
+    private GameObject player;
     private Rigidbody2D rgbd;
     private BallMagnetism ballMagnetism;
     private bool pass;

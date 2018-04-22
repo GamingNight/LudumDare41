@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        ShareANewPlayerHasCome(player);
     }
 
     void Update()
@@ -35,7 +36,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void InstantiateAlly()
+    public void InstantiateAlly()
     {
         Vector3 pos = new Vector3(-1, 1, 0);
         ally = Instantiate<GameObject>(prefabPlayer, player.transform.position + pos, Quaternion.identity);
@@ -49,7 +50,7 @@ public class PlayerManager : MonoBehaviour
         {
             ally.GetComponent<AllySpeed>().enabled = false; // le receveur n'accélère plus tout seul
             ally.GetComponent<PlayerController>().enabled = true; // le receveur est le nouveau joueur
-            ShareANewPlayerHasCome();
+            ShareANewPlayerHasCome(ally);
         }
         else
         {
@@ -57,16 +58,16 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void ShareANewPlayerHasCome()
+    private void ShareANewPlayerHasCome(GameObject newPlayer)
     {
-        player = ally;
+        player = newPlayer;
         GameObject[] allOpponents = GameObject.FindGameObjectsWithTag("Opponent");
         foreach (GameObject opponent in allOpponents)
         {
-            opponent.GetComponent<OpponentControllerAttack>().UpdatePlayer(ally);
+            opponent.GetComponent<OpponentControllerAttack>().UpdatePlayer(newPlayer);
         }
-        ball.GetComponent<BallController>().UpdatePlayer(ally);
-        ball.GetComponent<BallMagnetism>().UpdatePlayer(ally);
-        cam.GetComponent<CameraFollow>().target = ally.transform;
+        ball.GetComponent<BallController>().UpdatePlayer(newPlayer);
+        ball.GetComponent<BallMagnetism>().UpdatePlayer(newPlayer);
+        cam.GetComponent<CameraFollow>().target = newPlayer.transform;
     }
 }

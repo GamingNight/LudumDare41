@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4564047686691040}
   - component: {fileID: 114177981424772444}
+  - component: {fileID: 114580805734532918}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -57,3 +58,17 @@ MonoBehaviour:
   prefabPlayer: {fileID: 1362360057694898, guid: 05aed7493178de54e8c3087ab5c6f36a,
     type: 2}
   ballSpeed: 2
+--- !u!114 &114580805734532918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739187578182132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470760d923fef764e944e057d73e607e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFieldSprites:
+  - {fileID: 0}
+  - {fileID: 0}

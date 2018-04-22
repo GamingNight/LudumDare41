@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BallMagnetism : MonoBehaviour {
 
-    public GameObject player;
     public Vector2 positionOffset = new Vector2(0.05f, -0.05f);
 
+    private GameObject player;
     private SpriteRenderer ballSprite;
     private SpriteRenderer playerSprite;
     private Rigidbody2D playerRgbd;
