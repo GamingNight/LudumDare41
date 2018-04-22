@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 61341100199448330}
   - component: {fileID: 114646724258550762}
   - component: {fileID: 114211123517094760}
-  - component: {fileID: 95626205421542192}
+  - component: {fileID: 95736993260808416}
   m_Layer: 0
   m_Name: OpponentScanAngle
   m_TagString: Opponent
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313225938462954}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 5.2, y: 3, z: 0}
+  m_LocalPosition: {x: 7.235, y: 1.283, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4601518460661596}
@@ -173,7 +173,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.035, y: 0.2}
   m_EdgeRadius: 0
---- !u!95 &95626205421542192
+--- !u!95 &95736993260808416
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
