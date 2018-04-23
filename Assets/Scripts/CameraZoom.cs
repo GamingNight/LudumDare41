@@ -10,7 +10,6 @@ public class CameraZoom : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        size = 0.72f;
         t = 0;
 	}
 	

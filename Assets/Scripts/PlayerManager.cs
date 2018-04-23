@@ -70,8 +70,50 @@ public class PlayerManager : MonoBehaviour
             }
             cam.GetComponent<CameraZoom>().size = 1.4f;
             ally = Instantiate<GameObject>(prefabPlayer, player.transform.position + pos, Quaternion.identity);
+            foreach (Transform child in player.transform)
+            {
+                if (child.tag == "Clouds")
+                {
+                    foreach (Transform childSZ in child.transform)
+                    {
+                        if (childSZ.tag == "SafeZoneAlly3")
+                        {
+                            childSZ.gameObject.SetActive(true);
+                            childSZ.gameObject.GetComponent<FollowTheAlly>().ally = ally;
+                            foreach (Transform childC in child.transform)
+                            {
+                                if (childC.tag == "Clouds1")
+                                {
+                                    childC.GetComponent<ParticleSystem>().trigger.SetCollider(2, childSZ);
+                                }
+                            }
+                        }
+                        if (childSZ.tag == "SafeZoneAlly4")
+                        {
+                            childSZ.gameObject.SetActive(true);
+                            childSZ.gameObject.GetComponent<FollowTheAlly>().ally = ally;
+                            foreach (Transform childC in child.transform)
+                            {
+                                if (childC.tag == "Clouds2")
+                                {
+                                    childC.GetComponent<ParticleSystem>().trigger.SetCollider(2, childSZ);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             ally.GetComponent<PlayerController>().ball = ball;
             ally.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 0f);
+            ally.GetComponent<PlayerController>().enabled = false;
+            ally.GetComponent<AllySpeed>().enabled = true;
+            foreach (Transform child in ally.transform)
+            {
+                if (child.gameObject.tag == "Clouds")
+                    child.gameObject.SetActive(false);
+                if (child.gameObject.tag == "PlayerCollider")
+                    child.gameObject.SetActive(true);
+            }
             allyNum = allyNum + 1;
         }
     }

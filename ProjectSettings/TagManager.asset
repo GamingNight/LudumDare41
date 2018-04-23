@@ -11,6 +11,10 @@ TagManager:
   - OpponentFieldOfView
   - OpponentGoalKeeper
   - Clouds
+  - SafeZoneAlly4
+  - SafeZoneAlly3
+  - Clouds1
+  - Clouds2
   layers:
   - Default
   - TransparentFX
