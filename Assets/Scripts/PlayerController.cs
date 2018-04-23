@@ -110,7 +110,9 @@ public class PlayerController : MonoBehaviour {
 
         //Handle pass
         bool isMoving = horizontal != 0 || vertical != 0;
-        if (Input.GetKey(KeyCode.Space) && isMoving && ballMagnetism.enabled) {
+        bool hasAlly = PlayerManager.GetInstance().GetAlly() != null || PlayerManager.GetInstance().IsAllyAvailable();
+        if (Input.GetKey(KeyCode.Space) && isMoving && ballMagnetism.enabled && hasAlly) {
+            PlayerManager.GetInstance().InstantiateAlly(false, new Vector2(horizontal, vertical));
             Pass(horizontal, vertical);
         }
         //Handle Shoot charge
@@ -209,8 +211,11 @@ public class PlayerController : MonoBehaviour {
         rgbdBall.velocity = passKickSpeed * new Vector2(horizontal, vertical); // la balle est lancée
         GetComponent<PlayerController>().enabled = false; // le player n'est plus le joueur anymore
         ballMagnetism.enabled = false;// la balle n'est plus aimantée à ce player
+
         //Ce personnage n'est plus le player désormais
-        PlayerManager.GetInstance().SetAllyAsNewPlayer();
+        if (PlayerManager.GetInstance().GetAlly() != null) {
+            PlayerManager.GetInstance().SetAllyAsNewPlayer();
+        }
     }
 
     public void SetBall(GameObject b) {

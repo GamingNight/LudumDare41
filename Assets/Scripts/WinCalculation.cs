@@ -18,6 +18,7 @@ public class WinCalculation : MonoBehaviour {
             if (PlayerManager.GetInstance().GetScoringPoints() > winPoints) {
                 Debug.Log("YOU SCORED");
             } else {
+                other.gameObject.SetActive(false);
                 animator.SetBool("catchBall", true);
                 Debug.Log("The goal keeper catched the ball!");
             }
