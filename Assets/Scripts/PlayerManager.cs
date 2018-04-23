@@ -53,6 +53,8 @@ public class PlayerManager : MonoBehaviour {
 
         //Instantiate
         ally = Instantiate<GameObject>(prefabPlayer, position, Quaternion.identity);
+        //change camera target
+        cam.GetComponent<CameraFollow>().target = ally.transform;
 
         //Dig a hole in current player clouds to see ally
         foreach (Transform child in player.transform) {
@@ -163,7 +165,43 @@ public class PlayerManager : MonoBehaviour {
             }
             foreach (Transform child in ally.transform) {
                 if (child.tag == "Clouds") {
-                    child.gameObject.SetActive(true); //désactivation des nuages autour de l'ex player
+                    child.gameObject.SetActive(true); //activation des nuages autour du nouveau
+                }
+            }
+            //Dig a hole in current player clouds to see ally
+            foreach (Transform child in ally.transform)
+            {
+                if (child.tag == "Clouds")
+                {
+                    foreach (Transform childSZ in child.transform)
+                    {
+                        if (childSZ.tag == "SafeZoneAlly3")
+                        {
+                            childSZ.gameObject.SetActive(true);
+                            childSZ.gameObject.GetComponent<FollowTheAlly>().ally = null;
+                            childSZ.transform.position = player.transform.position;
+                            foreach (Transform childC in child.transform)
+                            {
+                                if (childC.tag == "Clouds1")
+                                {
+                                    childC.GetComponent<ParticleSystem>().trigger.SetCollider(2, childSZ);
+                                }
+                            }
+                        }
+                        if (childSZ.tag == "SafeZoneAlly4")
+                        {
+                            childSZ.gameObject.SetActive(true);
+                            childSZ.gameObject.GetComponent<FollowTheAlly>().ally = null;
+                            childSZ.transform.position = player.transform.position;
+                            foreach (Transform childC in child.transform)
+                            {
+                                if (childC.tag == "Clouds2")
+                                {
+                                    childC.GetComponent<ParticleSystem>().trigger.SetCollider(2, childSZ);
+                                }
+                            }
+                        }
+                    }
                 }
             }
             cam.GetComponent<CameraZoom>().size = 0.72f;
@@ -197,7 +235,6 @@ public class PlayerManager : MonoBehaviour {
 
         ball.GetComponent<BallController>().UpdatePlayer(newPlayer);
         ball.GetComponent<BallMagnetism>().UpdatePlayer(newPlayer);
-        cam.GetComponent<CameraFollow>().target = newPlayer.transform;
     }
 
     private void AssignObjectsToPlayer(GameObject newPlayer) {
