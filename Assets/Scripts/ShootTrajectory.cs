@@ -11,7 +11,8 @@ public class ShootTrajectory : MonoBehaviour {
     // Use this for initialization
     void Start() {
         float dist = (goalKeeper.transform.position - transform.position).magnitude;
-        PlayerManager.GetInstance().SetScoringPoints(PlayerManager.GetInstance().GetScoringPoints() / dist);
+        Debug.Log("distance"+dist);
+        PlayerManager.GetInstance().SetScoringPoints(PlayerManager.GetInstance().GetScoringPoints() / Mathf.Pow(dist,1.13f));
     }
 
     // Update is called once per frame
