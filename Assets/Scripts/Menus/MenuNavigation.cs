@@ -19,6 +19,12 @@ public class MenuNavigation : MonoBehaviour {
     private float initCursorLeftPosX;
     private float initCursorRightPosX;
 
+    // Sounds
+    private AudioSource[] sounds;
+    private AudioSource bipSFX;
+    private AudioSource validationSFX;
+    private AudioSource backSFX;
+
     void Start() {
 
         cursorIndex = 0;
@@ -26,6 +32,12 @@ public class MenuNavigation : MonoBehaviour {
         prevVertical = 0;
         initCursorLeftPosX = cursorLeft.transform.position.x;
         initCursorRightPosX = cursorRight.transform.position.x;
+
+        // Sounds
+        sounds = transform.parent.GetComponents<AudioSource>();
+        bipSFX = sounds[0];
+        validationSFX = sounds[1];
+        backSFX = sounds[2];
     }
 
     void Update() {
@@ -36,6 +48,10 @@ public class MenuNavigation : MonoBehaviour {
         UpdateCursorPosition(vertical);
 
         if (submit) {
+            if (!validationSFX.isPlaying)
+            {
+                validationSFX.Play();
+            }
             if (cursorIndex == 0) {
                 Play();
             } else if (cursorIndex == 1) {
@@ -65,12 +81,24 @@ public class MenuNavigation : MonoBehaviour {
             if (cursorIndex == 0) {
                 newLeftPosX = initCursorLeftPosX;
                 newRightPosX = initCursorRightPosX;
+                if (!bipSFX.isPlaying)
+                {
+                    bipSFX.Play();
+                }
             } else if (cursorIndex == 1) {
                 newLeftPosX = initCursorLeftPosX - 60;
                 newRightPosX = initCursorRightPosX + 60;
+                if (!bipSFX.isPlaying)
+                {
+                    bipSFX.Play();
+                }
             } else {//cursorIndex == 2
                 newLeftPosX = initCursorLeftPosX;
                 newRightPosX = initCursorRightPosX;
+                if (!bipSFX.isPlaying)
+                {
+                    bipSFX.Play();
+                }
             }
             float newPosY = prevPos.y + (prevCursorIndex - cursorIndex) * 50;
             cursorLeft.transform.position = new Vector3(newLeftPosX, newPosY, prevPos.z);
