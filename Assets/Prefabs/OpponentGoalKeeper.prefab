@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 50221455285416290}
   - component: {fileID: 61341100199448330}
   - component: {fileID: 114211123517094760}
-  - component: {fileID: 95626205421542192}
   - component: {fileID: 114140291954512398}
+  - component: {fileID: 95985568140346494}
   m_Layer: 0
   m_Name: OpponentGoalKeeper
   m_TagString: OpponentGoalKeeper
@@ -57,14 +57,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313225938462954}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.2, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4601518460661596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4601518460661596
 Transform:
   m_ObjectHideFlags: 1
@@ -164,7 +164,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.12857144, y: 0.24642856}
+    oldSize: {x: 0.10333333, y: 0.20666666}
     newSize: {x: 0.1, y: 0.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -173,7 +173,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.035, y: 0.2}
   m_EdgeRadius: 0
---- !u!95 &95626205421542192
+--- !u!95 &95985568140346494
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -182,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 1313225938462954}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e38259debde5eaa4d9bc430444c0c0eb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 116bcb878876d5c47afd8438d1f13111, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -308,10 +308,10 @@ SpriteRenderer:
   m_SortingLayerID: 901688019
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 126e868088b34d544a385f1e7546896a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86a39c44d6584454f8b170a7246bbe82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
