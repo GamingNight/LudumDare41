@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -12,19 +12,29 @@ public class GameManager : MonoBehaviour {
         return instance;
     }
 
+    public enum GameOverType {
+
+        GOOD_GOAL_KEEPER, CATCHED_BY_OPPONENT, TIME_OUT
+    }
+
+    private GameOverType gameOverType;
+
     private void Awake() {
 
         if (instance == null) {
+            DontDestroyOnLoad(gameObject);
             instance = this;
         }
     }
 
-    public void GameOver() {
+    public void GameOver(GameOverType type) {
 
-        Debug.Log("GameOver");
+        gameOverType = type;
+        SceneManager.LoadScene("Gameover");
     }
 
     public void Win() {
-        Debug.Log("Win");
+
+        SceneManager.LoadScene("Win");
     }
 }

@@ -49,7 +49,7 @@ public class WinCalculation : MonoBehaviour {
 
     public void GameOverByCatch() {
 
-        GameManager.GetInstance().GameOver();
+        GameManager.GetInstance().GameOver(GameManager.GameOverType.GOOD_GOAL_KEEPER);
     }
 
     public void PlayerWins() {
