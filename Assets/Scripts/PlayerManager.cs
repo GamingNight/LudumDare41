@@ -82,6 +82,20 @@ public class PlayerManager : MonoBehaviour
         {
             ally.GetComponent<AllySpeed>().enabled = false; // le receveur n'accélère plus tout seul
             ally.GetComponent<PlayerController>().enabled = true; // le receveur est le nouveau joueur
+            foreach (Transform child in player.transform)
+            {
+                if (child.tag == "Clouds")
+                {
+                    child.gameObject.SetActive(false); //désactivation des nuages autour de l'ex player
+                }
+            }
+            foreach (Transform child in ally.transform)
+            {
+                if (child.tag == "Clouds")
+                {
+                    child.gameObject.SetActive(true); //désactivation des nuages autour de l'ex player
+                }
+            }
             cam.GetComponent<CameraZoom>().size = 0.72f;
             ShareANewPlayerHasCome(ally);
             ally = null;
