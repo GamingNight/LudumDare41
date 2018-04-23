@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 11284795}
   - component: {fileID: 11284794}
   - component: {fileID: 11284793}
-  - component: {fileID: 11284792}
   m_Layer: 5
   m_Name: background
   m_TagString: Untagged
@@ -132,22 +131,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11284792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 11284791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d59a24b9318974da2c3567685748ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorLeft: {fileID: 0}
-  cursorRight: {fileID: 0}
-  playText: {fileID: 0}
-  controlsText: {fileID: 0}
-  quitText: {fileID: 0}
 --- !u!114 &11284793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +275,63 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 25873760}
+--- !u!1 &200746600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 200746601}
+  - component: {fileID: 200746602}
+  m_Layer: 5
+  m_Name: main
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &200746601
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 200746600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 992578942}
+  - {fileID: 1938456621}
+  - {fileID: 1056522712}
+  - {fileID: 939455496}
+  - {fileID: 1502277464}
+  m_Father: {fileID: 677713469}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00000059604645, y: -0.000001186505}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &200746602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 200746600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d59a24b9318974da2c3567685748ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorLeft: {fileID: 939455495}
+  cursorRight: {fileID: 1502277463}
+  playText: {fileID: 992578941}
+  controlsText: {fileID: 1938456620}
+  quitText: {fileID: 1056522711}
+  mainContainer: {fileID: 200746600}
+  howToPlayContainer: {fileID: 378665388}
 --- !u!1 &301359702
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +423,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &378665388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 378665389}
+  - component: {fileID: 378665390}
+  m_Layer: 5
+  m_Name: how to play
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &378665389
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 378665388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1304531849}
+  - {fileID: 1758346738}
+  - {fileID: 563041082}
+  m_Father: {fileID: 677713469}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00000059604645, y: -0.000001186505}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &378665390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 378665388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f39c825f32c48e45b120beb5cf18369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backText: {fileID: 1304531848}
+  mainContainer: {fileID: 200746600}
+  howToPlayContainer: {fileID: 378665388}
 --- !u!1 &506652784
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,14 +546,13 @@ GameObject:
   - component: {fileID: 563041082}
   - component: {fileID: 563041085}
   - component: {fileID: 563041084}
-  - component: {fileID: 563041083}
   m_Layer: 5
   m_Name: ControlsCommands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &563041082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -473,44 +563,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 677713469}
-  m_RootOrder: 5
+  m_Father: {fileID: 378665389}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -180, y: -591.68}
+  m_AnchoredPosition: {x: -180, y: -242.68}
   m_SizeDelta: {x: 573.7, y: 211.09998}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &563041083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 563041081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 677713470}
-          m_MethodName: HighlightQuitText
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &563041084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,7 +629,6 @@ GameObject:
   - component: {fileID: 677713468}
   - component: {fileID: 677713467}
   - component: {fileID: 677713466}
-  - component: {fileID: 677713470}
   m_Layer: 5
   m_Name: menus
   m_TagString: Untagged
@@ -644,14 +703,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 992578942}
-  - {fileID: 1938456621}
-  - {fileID: 1056522712}
-  - {fileID: 1304531849}
-  - {fileID: 1758346738}
-  - {fileID: 563041082}
-  - {fileID: 939455496}
-  - {fileID: 1502277464}
+  - {fileID: 200746601}
+  - {fileID: 378665389}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -660,22 +713,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1404, y: 798}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &677713470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 677713465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d59a24b9318974da2c3567685748ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorLeft: {fileID: 939455495}
-  cursorRight: {fileID: 1502277463}
-  playText: {fileID: 992578941}
-  controlsText: {fileID: 1938456620}
-  quitText: {fileID: 1056522711}
 --- !u!1 &939455495
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,12 +736,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 939455495}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 677713469}
-  m_RootOrder: 6
+  m_Father: {fileID: 200746601}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -768,11 +805,11 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992578941}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 677713469}
+  m_Father: {fileID: 200746601}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -835,7 +872,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 677713470}
+        - m_Target: {fileID: 200746602}
           m_MethodName: HighlightPlayText
           m_Mode: 1
           m_Arguments:
@@ -877,7 +914,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 677713469}
+  m_Father: {fileID: 200746601}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -940,7 +977,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 677713470}
+        - m_Target: {fileID: 200746602}
           m_MethodName: HighlightQuitText
           m_Mode: 1
           m_Arguments:
@@ -964,14 +1001,13 @@ GameObject:
   - component: {fileID: 1304531849}
   - component: {fileID: 1304531852}
   - component: {fileID: 1304531851}
-  - component: {fileID: 1304531850}
   m_Layer: 5
   m_Name: ControlsBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1304531849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -982,44 +1018,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 677713469}
-  m_RootOrder: 3
+  m_Father: {fileID: 378665389}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -337.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1304531850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1304531848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 677713470}
-          m_MethodName: HighlightQuitText
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &1304531851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,8 +1092,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 677713469}
-  m_RootOrder: 7
+  m_Father: {fileID: 200746601}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1313,14 +1319,13 @@ GameObject:
   - component: {fileID: 1758346738}
   - component: {fileID: 1758346741}
   - component: {fileID: 1758346740}
-  - component: {fileID: 1758346739}
   m_Layer: 5
   m_Name: ControlsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1758346738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1331,44 +1336,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 677713469}
-  m_RootOrder: 4
+  m_Father: {fileID: 378665389}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 180, y: -591.68}
+  m_AnchoredPosition: {x: 180, y: -242.68}
   m_SizeDelta: {x: 573.7, y: 211.09998}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1758346739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1758346737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 677713470}
-          m_MethodName: HighlightQuitText
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &1758346740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,7 +1508,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 677713469}
+  m_Father: {fileID: 200746601}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1596,7 +1571,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 677713470}
+        - m_Target: {fileID: 200746602}
           m_MethodName: HighlightControlsText
           m_Mode: 1
           m_Arguments:
