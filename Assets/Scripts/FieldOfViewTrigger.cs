@@ -19,7 +19,7 @@ public class FieldOfViewTrigger : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
 
         if (collision.gameObject == player) {
-            PlayerManager.GetInstance().InstantiateAlly();
+            PlayerManager.GetInstance().InstantiateAlly(true, Vector2.one);
             spriteRenderer.color = new Color(154f / 255, 41f / 255, 28f / 255);
             //Deactivate patrol
             if (transform.parent.gameObject.GetComponent<OpponentControllerPatrol>() != null)

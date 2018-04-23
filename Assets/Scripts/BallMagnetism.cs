@@ -21,9 +21,9 @@ public class BallMagnetism : MonoBehaviour {
     void Start() {
         Vector2 playerPos = player.transform.position;
         transform.position = playerPos + positionOffset;
-        ballSprite = GetComponent<SpriteRenderer>();
         playerSprite = player.GetComponent<SpriteRenderer>();
         playerRgbd = player.GetComponent<Rigidbody2D>();
+        ballSprite = GetComponent<SpriteRenderer>();
         prevVerticalMove = 0;
         prevHorizontalMove = 0;
         isMovingWithPlayer = false;
@@ -32,6 +32,8 @@ public class BallMagnetism : MonoBehaviour {
     public void UpdatePlayer(GameObject newPlayer)
     {
         player = newPlayer;
+        playerSprite = player.GetComponent<SpriteRenderer>();
+        playerRgbd = player.GetComponent<Rigidbody2D>();
     }
 
     void Update() {
