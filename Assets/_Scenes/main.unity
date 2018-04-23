@@ -177,7 +177,7 @@ Prefab:
         type: 2}
       propertyPath: lifeText
       value: 
-      objectReference: {fileID: 410393305}
+      objectReference: {fileID: 1489898512}
     - target: {fileID: 114177981424772444, guid: a1cd70982ebfd304dbdfdb76ed8d0774,
         type: 2}
       propertyPath: numPassMax
@@ -819,12 +819,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 724dc333076757f45a24784101335325, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &410393305 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114699044198979184, guid: 40340f8427a188a4892089949c5fd844,
-    type: 2}
-  m_PrefabInternal: {fileID: 1489898511}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &448538687
 Prefab:
   m_ObjectHideFlags: 0
@@ -2368,6 +2362,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40340f8427a188a4892089949c5fd844, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1489898512 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114344880028440066, guid: 40340f8427a188a4892089949c5fd844,
+    type: 2}
+  m_PrefabInternal: {fileID: 1489898511}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1500875318
 Prefab:
   m_ObjectHideFlags: 0
