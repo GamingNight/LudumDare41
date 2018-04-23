@@ -10,6 +10,7 @@ TagManager:
   - Opponent
   - OpponentFieldOfView
   - OpponentGoalKeeper
+  - Clouds
   layers:
   - Default
   - TransparentFX
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: OnFieldObject
     uniqueID: 901688019
+    locked: 0
+  - name: TopGoal
+    uniqueID: 942060245
     locked: 0
   - name: Clouds
     uniqueID: 2074277189

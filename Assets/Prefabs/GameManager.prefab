@@ -60,7 +60,7 @@ MonoBehaviour:
     type: 2}
   ballSpeed: 0
   ScoringPoints: 0
-  NumPassMax: 0
+  NumPassMax: 2
 --- !u!114 &114580805734532918
 MonoBehaviour:
   m_ObjectHideFlags: 1
