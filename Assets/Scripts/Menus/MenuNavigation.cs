@@ -10,6 +10,8 @@ public class MenuNavigation : MonoBehaviour {
     public GameObject playText;
     public GameObject controlsText;
     public GameObject quitText;
+    public GameObject mainContainer;
+    public GameObject howToPlayContainer;
 
     private int cursorIndex;
     private float prevVertical;
@@ -37,7 +39,7 @@ public class MenuNavigation : MonoBehaviour {
             if (cursorIndex == 0) {
                 Play();
             } else if (cursorIndex == 1) {
-                //TODO
+                DisplayHowToPlay();
             } else if (cursorIndex == 2) {
                 Quit();
             }
@@ -95,5 +97,11 @@ public class MenuNavigation : MonoBehaviour {
 
     private void Quit() {
         Application.Quit();
+    }
+
+    private void DisplayHowToPlay() {
+
+        mainContainer.SetActive(false);
+        howToPlayContainer.SetActive(true);
     }
 }
