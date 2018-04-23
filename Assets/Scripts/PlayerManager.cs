@@ -233,6 +233,10 @@ public class PlayerManager : MonoBehaviour {
         if (goal != null)
             goal.GetComponent<OpponentControllerGoal>().UpdatePlayer(newPlayer);
 
+        GameObject staminaHUD = GameObject.FindGameObjectWithTag("StaminaHUD");
+        if (staminaHUD != null)
+            staminaHUD.GetComponent<UpdateStaminaSlider>().UpdatePlayer(newPlayer);
+
         ball.GetComponent<BallController>().UpdatePlayer(newPlayer);
         ball.GetComponent<BallMagnetism>().UpdatePlayer(newPlayer);
     }

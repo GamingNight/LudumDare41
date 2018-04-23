@@ -15,6 +15,7 @@ TagManager:
   - SafeZoneAlly3
   - Clouds1
   - Clouds2
+  - StaminaHUD
   layers:
   - Default
   - TransparentFX

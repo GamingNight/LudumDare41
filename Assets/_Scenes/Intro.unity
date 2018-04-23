@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 629003100}
   - component: {fileID: 629003099}
   - component: {fileID: 629003101}
+  - component: {fileID: 629003102}
   m_Layer: 5
   m_Name: intro text
   m_TagString: Untagged
@@ -272,8 +273,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lorem ipsum dolor sit amet gros caca pipi du gland qui suce des bites avec
-    son cul ...
+  m_Text: 'It''s now the last moments of the game. Score is 2-2.
+
+    All Depends on You.'
 --- !u!222 &629003100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -297,6 +299,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &629003102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 629003097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3e4620019f58f4caa1a62ba309c7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &927987983
 GameObject:
   m_ObjectHideFlags: 0
