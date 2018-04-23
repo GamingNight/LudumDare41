@@ -56,6 +56,9 @@ TagManager:
   - name: OnFieldObject
     uniqueID: 901688019
     locked: 0
+  - name: TopGoal
+    uniqueID: 942060245
+    locked: 0
   - name: Clouds
     uniqueID: 2074277189
     locked: 0
