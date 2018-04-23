@@ -11,6 +11,7 @@ public class OpponentControllerPatrol : MonoBehaviour {
 
     //public variables
     public GameObject fieldOfViewTrigger;
+    public float initialWait = 0;
     public float waitTimeBetweenPatrols = 2;
     public PatrolDirection patrolDirection = PatrolDirection.HORIZONTAL;
     public float patrolDistance = 1;
@@ -19,7 +20,8 @@ public class OpponentControllerPatrol : MonoBehaviour {
     //private variables
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private float timeSinceLastWait;
+    private float timer;
+    private float timerSinceLastWait;
     private bool moving;
     private float distanceTraveled;
     private bool firstPatrol;
@@ -28,7 +30,8 @@ public class OpponentControllerPatrol : MonoBehaviour {
     void Start() {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        timeSinceLastWait = 0f;
+        timer = 0f;
+        timerSinceLastWait = 0f;
         moving = false;
         distanceTraveled = 0;
         firstPatrol = true;
@@ -37,14 +40,18 @@ public class OpponentControllerPatrol : MonoBehaviour {
 
     void Update() {
 
+        timer += Time.deltaTime;
+        if (timer < initialWait)
+            return;
+
         if (!moving) {
-            timeSinceLastWait += Time.deltaTime;
-            if (timeSinceLastWait >= waitTimeBetweenPatrols) {
+            timerSinceLastWait += Time.deltaTime;
+            if (timerSinceLastWait >= waitTimeBetweenPatrols) {
                 if (!firstPatrol)
                     Flip();
                 firstPatrol = false;
                 moving = true;
-                timeSinceLastWait = 0;
+                timerSinceLastWait = 0;
             }
         }
 
