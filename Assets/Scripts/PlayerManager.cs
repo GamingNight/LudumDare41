@@ -13,15 +13,14 @@ public class PlayerManager : MonoBehaviour {
     public Camera cam;
     public GameObject ball;
     public GameObject prefabPlayer;
-    public float ballSpeed;
-    public float ScoringPoints = 0;
-    public float NumPassMax;
+    public float numPassMax;
 
     private GameObject ally;
     private float horizontal;
     private float vertical;
     private int allyNum;
     private Vector3 pos;
+    private float scoringPoints;
 
     private void Awake() {
         if (instance == null)
@@ -29,6 +28,7 @@ public class PlayerManager : MonoBehaviour {
         ShareANewPlayerHasCome(player);
         AssignObjectsToPlayer(player);
         allyNum = 0;
+        scoringPoints = 0;
     }
 
     void Update() {
@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviour {
 
     public void InstantiateAlly() {
 
-        if (ally != null || allyNum >= NumPassMax) {
+        if (ally != null || allyNum >= numPassMax) {
             return;
         }
 
@@ -142,7 +142,8 @@ public class PlayerManager : MonoBehaviour {
             opponent.GetComponent<OpponentControllerAttack>().UpdatePlayer(newPlayer);
         }
         GameObject goal = GameObject.FindGameObjectWithTag("OpponentGoalKeeper");
-        goal.GetComponent<OpponentControllerGoal>().UpdatePlayer(newPlayer);
+        if (goal != null)
+            goal.GetComponent<OpponentControllerGoal>().UpdatePlayer(newPlayer);
 
         ball.GetComponent<BallController>().UpdatePlayer(newPlayer);
         ball.GetComponent<BallMagnetism>().UpdatePlayer(newPlayer);
@@ -159,5 +160,13 @@ public class PlayerManager : MonoBehaviour {
             if (child.GetComponent<PlayerShowBall>() != null)
                 child.GetComponent<PlayerShowBall>().SetBall(ball);
         }
+    }
+
+    public void SetScoringPoints(float points) {
+        scoringPoints = points;
+    }
+
+    public float GetScoringPoints() {
+        return scoringPoints;
     }
 }

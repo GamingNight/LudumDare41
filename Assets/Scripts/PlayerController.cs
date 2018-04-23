@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey(KeyCode.R) && ballMagnetism.enabled) {
             shootCharge = shootCharge + 1;
             shootCharge = Mathf.Min(shootCharge, shootMaxPower);
-            PlayerManager.GetInstance().ScoringPoints = shootCharge;
+            PlayerManager.GetInstance().SetScoringPoints(shootCharge);
             animator.SetInteger("shootState", (int)1);
         }
         //Handle Shoot
@@ -150,8 +150,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             // Sound
-            if (!footstepSFX.isPlaying)
-            {
+            if (!footstepSFX.isPlaying) {
                 footstepSFX.Play();
             }
 
@@ -160,8 +159,7 @@ public class PlayerController : MonoBehaviour {
             animState = AnimationState.IDLE;
 
             // Sound
-            if (footstepSFX.isPlaying)
-            {
+            if (footstepSFX.isPlaying) {
                 footstepSFX.Stop();
             }
 
@@ -182,8 +180,7 @@ public class PlayerController : MonoBehaviour {
     private void Shoot(float shootStrength) {
 
         // Sound
-        if (!passSFX.isPlaying)
-        {
+        if (!passSFX.isPlaying) {
             passSFX.volume = 0.6f;
             passSFX.Play();
         }
@@ -197,8 +194,7 @@ public class PlayerController : MonoBehaviour {
     private void Pass(float horizontal, float vertical) {
 
         // Sound
-        if (!passSFX.isPlaying)
-        {
+        if (!passSFX.isPlaying) {
             passSFX.volume = 0.3f;
             passSFX.Play();
         }
