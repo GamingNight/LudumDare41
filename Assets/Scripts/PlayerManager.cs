@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour {
     private static PlayerManager instance;
@@ -14,6 +15,7 @@ public class PlayerManager : MonoBehaviour {
     public GameObject ball;
     public GameObject prefabPlayer;
     public float numPassMax;
+    public Text lifeText;
 
     private GameObject ally;
     private float horizontal;
@@ -27,6 +29,7 @@ public class PlayerManager : MonoBehaviour {
         ShareANewPlayerHasCome(player);
         AssignObjectsToPlayer(player);
         allyNum = 0;
+        lifeText.text = "" + numPassMax;
         scoringPoints = 0;
     }
 
@@ -96,6 +99,7 @@ public class PlayerManager : MonoBehaviour {
 
         //One more ally to the counter
         allyNum = allyNum + 1;
+        lifeText.text = (numPassMax - allyNum) + "";
     }
 
     private Vector3 ComputeSpawnPosition(bool autoMove, Vector2 ballDirection) {
