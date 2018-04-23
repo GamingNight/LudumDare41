@@ -34,6 +34,13 @@ public class PlayerController : MonoBehaviour {
     private float boostUsed;
     private bool isMainPlayer;
 
+
+    // Sounds
+    private AudioSource[] sounds;
+    private AudioSource footstepSFX;
+    private AudioSource passSFX;
+
+
     void Start() {
         rgbd = GetComponent<Rigidbody2D>();
         rgbdBall = ball.GetComponent<Rigidbody2D>();
@@ -48,6 +55,11 @@ public class PlayerController : MonoBehaviour {
         i = 0;
         boostUsed = boost;
         isMainPlayer = true;
+
+        // Sounds
+        sounds = GetComponents<AudioSource>();
+        footstepSFX = sounds[0];
+        passSFX = sounds[1];
     }
 
     void FixedUpdate() {
@@ -136,9 +148,23 @@ public class PlayerController : MonoBehaviour {
             } else if (horizontal != 0) {
                 animState = AnimationState.SIDE_WALK;
             }
+
+            // Sound
+            if (!footstepSFX.isPlaying)
+            {
+                footstepSFX.Play();
+            }
+
             spriteRenderer.flipX = horizontal < 0;
         } else {
             animState = AnimationState.IDLE;
+
+            // Sound
+            if (footstepSFX.isPlaying)
+            {
+                footstepSFX.Stop();
+            }
+
         }
         animator.SetInteger("walkState", (int)animState);
     }
@@ -154,6 +180,14 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Shoot(float shootStrength) {
+
+        // Sound
+        if (!passSFX.isPlaying)
+        {
+            passSFX.volume = 0.6f;
+            passSFX.Play();
+        }
+
         ball.GetComponent<BallController>().dragBall = false;
         ballMagnetism.enabled = false;// la balle n'est plus aimantée à ce player
         ball.GetComponent<ShootTrajectory>().enabled = true;
@@ -161,6 +195,14 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Pass(float horizontal, float vertical) {
+
+        // Sound
+        if (!passSFX.isPlaying)
+        {
+            passSFX.volume = 0.3f;
+            passSFX.Play();
+        }
+
         foreach (Transform child in transform) {
             if (child.tag == "PlayerCollider") {
                 child.GetComponent<CircleCollider2D>().enabled = false; //un player qui est joueur n'a pas de zone de freinage de balle
