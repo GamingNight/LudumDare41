@@ -141,6 +141,9 @@ public class PlayerManager : MonoBehaviour {
         foreach (GameObject opponent in allOpponents) {
             opponent.GetComponent<OpponentControllerAttack>().UpdatePlayer(newPlayer);
         }
+        GameObject goal = GameObject.FindGameObjectWithTag("OpponentGoalKeeper");
+        goal.GetComponent<OpponentControllerGoal>().UpdatePlayer(newPlayer);
+
         ball.GetComponent<BallController>().UpdatePlayer(newPlayer);
         ball.GetComponent<BallMagnetism>().UpdatePlayer(newPlayer);
         cam.GetComponent<CameraFollow>().target = newPlayer.transform;
