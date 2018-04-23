@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public float stamina;
     public float passKickSpeed = 2;
     public float shootMaxPower;
+    public CloudDissipation cloudSystemDissipation;
 
     private Camera cam;
     private GameObject ball;
@@ -121,6 +122,8 @@ public class PlayerController : MonoBehaviour {
             shootCharge = Mathf.Min(shootCharge, shootMaxPower);
             PlayerManager.GetInstance().SetScoringPoints(shootCharge);
             animator.SetInteger("shootState", (int)1);
+            cloudSystemDissipation.DeactivateParticleLoop();
+
         }
         //Handle Shoot
         if (Input.GetKeyUp(KeyCode.R) && ballMagnetism.enabled) {

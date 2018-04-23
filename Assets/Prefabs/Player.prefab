@@ -190,6 +190,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4544378105997448}
+  - component: {fileID: 114158260311660606}
   m_Layer: 0
   m_Name: CloudSystem
   m_TagString: Clouds
@@ -829,13 +830,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ally: {fileID: 0}
+--- !u!114 &114158260311660606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923624278304016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eab1ff7365df1b49abf0686b57a2659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem1: {fileID: 198113148154178602}
+  particleSystem2: {fileID: 198856899558229266}
 --- !u!114 &114428754976121606
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1362360057694898}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0935c3c776a04c746ae748b14522e02e, type: 3}
   m_Name: 
@@ -845,13 +859,14 @@ MonoBehaviour:
   stamina: 100
   passKickSpeed: 2
   shootMaxPower: 100
+  cloudSystemDissipation: {fileID: 114158260311660606}
 --- !u!114 &114449619254860748
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1362360057694898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da98541bb06fc8f45afd5c1b68484571, type: 3}
   m_Name: 
@@ -892,7 +907,7 @@ ParticleSystem:
   simulationSpeed: 1
   stopAction: 0
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -941,7 +956,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 959737670
+  randomSeed: -1434675804
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4253,7 +4268,7 @@ ParticleSystem:
   simulationSpeed: 1
   stopAction: 0
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
