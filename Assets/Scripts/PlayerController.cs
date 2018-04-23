@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
 
-    public enum AnimationState
-    {
+    public enum AnimationState {
         IDLE = 0, SIDE_WALK = 1, BACK_WALK = -1, FRONT_WALK = 2
     }
 
-    public Camera cam;
-    public GameObject ball;
     public float strength;
     public float boost;
     public float stamina;
     public float passKickSpeed = 2;
     public float shootMaxPower;
 
+    private Camera cam;
+    private GameObject ball;
     private Rigidbody2D rgbd;
     private Rigidbody2D rgbdBall;
     private BallMagnetism ballMagnetism;
@@ -34,9 +32,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 addvelocity;
     private int i;
     private float boostUsed;
+    private bool isMainPlayer;
 
-    void Start()
-    {
+    void Start() {
         rgbd = GetComponent<Rigidbody2D>();
         rgbdBall = ball.GetComponent<Rigidbody2D>();
         ballMagnetism = ball.GetComponent<BallMagnetism>();
@@ -49,36 +47,31 @@ public class PlayerController : MonoBehaviour
         animState = AnimationState.IDLE;
         i = 0;
         boostUsed = boost;
+        isMainPlayer = true;
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        if (Input.GetKey(KeyCode.V) && iStamina > 0 && indivBoost < indivBoostMax)
-        {
+        if (Input.GetKey(KeyCode.V) && iStamina > 0 && indivBoost < indivBoostMax) {
             //Handle dash (interrupt walking)
             indivBoost = indivBoost + 1;
-            indivBoost = Mathf.Min(indivBoost, indivBoostMax-1);
-            boostUsed = boost * (indivBoost / indivBoostMax +1);
+            indivBoost = Mathf.Min(indivBoost, indivBoostMax - 1);
+            boostUsed = boost * (indivBoost / indivBoostMax + 1);
             Dash();
             clock = 0;
-            if (indivBoost / indivBoostMax > 0.3)
-            {
+            if (indivBoost / indivBoostMax > 0.3) {
                 ballMagnetism.amplitude = 1 - (indivBoost / indivBoostMax);
             }
         }
-        if (Input.GetKeyUp(KeyCode.V))
-        {
+        if (Input.GetKeyUp(KeyCode.V)) {
             iStamina = iStamina - indivBoost;
-            if (ballMagnetism.enabled)
-            {
+            if (ballMagnetism.enabled) {
                 addvelocity = new Vector2(movement.x * Mathf.Abs(rgbd.velocity.x), movement.y * Mathf.Abs(rgbd.velocity.y));
                 rgbdBall.velocity = rgbd.velocity + addvelocity * strength * boostUsed;
                 ballMagnetism.amplitude = 1;
             }
-            if (indivBoost / indivBoostMax > 0.3)
-            {
+            if (indivBoost / indivBoostMax > 0.3) {
                 i = i + 1;
                 ballMagnetism.enabled = false;
                 animator.SetBool("hasBall", false);
@@ -86,46 +79,37 @@ public class PlayerController : MonoBehaviour
             indivBoost = 0;
             boostUsed = boost;
         }
-        if (!Input.GetKey(KeyCode.V))
-        {
+        if (!Input.GetKey(KeyCode.V)) {
             indivBoost = 0;
-            if (clock < 3)
-            {
+            if (clock < 3) {
                 clock = clock + Time.deltaTime;
-            }
-            else
-            {
+            } else {
                 clock = 0;
                 iStamina = iStamina + indivBoostMax / 2;
-                if (iStamina > stamina)
-                {
+                if (iStamina > stamina) {
                     iStamina = stamina;
                 }
             }
         }
         //Handle regular walking
-        if (!Input.GetKey(KeyCode.R))
-        {
+        if (!Input.GetKey(KeyCode.R)) {
             Move(horizontal, vertical);
         }
 
         //Handle pass
         bool isMoving = horizontal != 0 || vertical != 0;
-        if (Input.GetKey(KeyCode.Space) && isMoving && ballMagnetism.enabled)
-        {
+        if (Input.GetKey(KeyCode.Space) && isMoving && ballMagnetism.enabled) {
             Pass(horizontal, vertical);
         }
         //Handle Shoot charge
-        if (Input.GetKey(KeyCode.R) && ballMagnetism.enabled)
-        {
+        if (Input.GetKey(KeyCode.R) && ballMagnetism.enabled) {
             shootCharge = shootCharge + 1;
             shootCharge = Mathf.Min(shootCharge, shootMaxPower);
             PlayerManager.GetInstance().ScoringPoints = shootCharge;
             animator.SetInteger("shootState", (int)1);
         }
         //Handle Shoot
-        if (Input.GetKeyUp(KeyCode.R) && ballMagnetism.enabled)
-        {
+        if (Input.GetKeyUp(KeyCode.R) && ballMagnetism.enabled) {
             cam.GetComponent<CameraFollow>().target = ball.transform;
             animator.SetInteger("shootState", (int)2);
             Shoot(shootCharge / shootMaxPower);
@@ -133,69 +117,52 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move(float horizontal, float vertical)
-    {
+    private void Move(float horizontal, float vertical) {
 
-        if (horizontal != 0 || vertical != 0)
-        {
+        if (horizontal != 0 || vertical != 0) {
             movement.Set(horizontal, vertical);
             rgbd.AddForce(movement.normalized * strength);
         }
         UpdateAnimation(horizontal, vertical);
     }
 
-    private void UpdateAnimation(float horizontal, float vertical)
-    {
+    private void UpdateAnimation(float horizontal, float vertical) {
 
-        if (horizontal != 0 || vertical != 0)
-        {
-            if (vertical < 0 && horizontal == 0)
-            {
+        if (horizontal != 0 || vertical != 0) {
+            if (vertical < 0 && horizontal == 0) {
                 animState = AnimationState.FRONT_WALK;
-            }
-            else if (vertical > 0 && horizontal == 0)
-            {
+            } else if (vertical > 0 && horizontal == 0) {
                 animState = AnimationState.BACK_WALK;
-            }
-            else if (horizontal != 0)
-            {
+            } else if (horizontal != 0) {
                 animState = AnimationState.SIDE_WALK;
             }
             spriteRenderer.flipX = horizontal < 0;
-        }
-        else
-        {
+        } else {
             animState = AnimationState.IDLE;
         }
         animator.SetInteger("walkState", (int)animState);
     }
 
-    private void Dash()
-    {
+    private void Dash() {
 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        if (horizontal != 0 || vertical != 0)
-        {
+        if (horizontal != 0 || vertical != 0) {
             movement.Set(horizontal, vertical);
             rgbd.AddForce(movement.normalized * strength * boostUsed);
         }
     }
 
-    private void Shoot(float shootStrength)
-    {
+    private void Shoot(float shootStrength) {
         ball.GetComponent<BallController>().dragBall = false;
         ballMagnetism.enabled = false;// la balle n'est plus aimantée à ce player
         ball.GetComponent<ShootTrajectory>().enabled = true;
         ball.GetComponent<ShootTrajectory>().shootStrength = shootStrength;
     }
 
-    private void Pass(float horizontal, float vertical)
-    {
-        foreach (Transform child in transform)
-        {
-            if (child.tag == "PlayerCollider")
-            {
+    private void Pass(float horizontal, float vertical) {
+        foreach (Transform child in transform) {
+            if (child.tag == "PlayerCollider") {
                 child.GetComponent<CircleCollider2D>().enabled = false; //un player qui est joueur n'a pas de zone de freinage de balle
             }
         }
@@ -206,6 +173,21 @@ public class PlayerController : MonoBehaviour
         ballMagnetism.enabled = false;// la balle n'est plus aimantée à ce player
         //Ce personnage n'est plus le player désormais
         PlayerManager.GetInstance().SetAllyAsNewPlayer();
-        PlayerManager.GetInstance().GiveGameobjectsToNewPlayer();
+    }
+
+    public void SetBall(GameObject b) {
+        ball = b;
+    }
+
+    public void SetCam(Camera c) {
+        cam = c;
+    }
+
+    public bool IsMainPlayer() {
+        return isMainPlayer;
+    }
+
+    public void SetMainPlayer(bool mainPlayer) {
+        isMainPlayer = mainPlayer;
     }
 }

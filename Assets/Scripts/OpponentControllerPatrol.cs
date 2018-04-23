@@ -70,7 +70,6 @@ public class OpponentControllerPatrol : MonoBehaviour {
         Vector2 patrolVector = new Vector2();
         switch (patrolDirection) {
             case PatrolDirection.HORIZONTAL:
-                Debug.Log(fieldOfViewTrigger.transform.right);
                 if ((int)fieldOfViewTrigger.transform.right.x == 1) {
                     //vers la droite
                     patrolVector = Vector2.right;
