@@ -15,7 +15,7 @@ public class OpponentControllerStatic : MonoBehaviour {
         if (fieldOfViewTrigger.transform.eulerAngles.z >= 45 && fieldOfViewTrigger.transform.eulerAngles.z <= 90) {
             animator.SetInteger("direction", -1);
             spriteRenderer.flipX = false;
-        } else if (fieldOfViewTrigger.transform.eulerAngles.z > 90 && fieldOfViewTrigger.transform.eulerAngles.z <= 180) {
+        } else if (fieldOfViewTrigger.transform.eulerAngles.z > 90 && fieldOfViewTrigger.transform.eulerAngles.z <= 135) {
             animator.SetInteger("direction", -1);
             spriteRenderer.flipX = true;
         } else if (fieldOfViewTrigger.transform.eulerAngles.z >= 225 && fieldOfViewTrigger.transform.eulerAngles.z <= 315) {
