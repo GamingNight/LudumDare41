@@ -64,8 +64,8 @@ public class MenuNavigation : MonoBehaviour {
                 newLeftPosX = initCursorLeftPosX;
                 newRightPosX = initCursorRightPosX;
             } else if (cursorIndex == 1) {
-                newLeftPosX = initCursorLeftPosX - 38;
-                newRightPosX = initCursorRightPosX + 38;
+                newLeftPosX = initCursorLeftPosX - 60;
+                newRightPosX = initCursorRightPosX + 60;
             } else {//cursorIndex == 2
                 newLeftPosX = initCursorLeftPosX;
                 newRightPosX = initCursorRightPosX;
