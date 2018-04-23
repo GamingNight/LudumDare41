@@ -18,5 +18,10 @@ public class HUD : MonoBehaviour
         if (secondes < 10)
             secondesStr = "0" + secondesStr;
         chrono.text = "0" + minutes + ":" + secondesStr;
+
+        if (timeLeft <= 0)
+        {
+            GameManager.GetInstance().GameOver(EndGameStats.GameOverType.TIME_OUT);
+        }
     }
 }

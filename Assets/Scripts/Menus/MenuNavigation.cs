@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuNavigation : MonoBehaviour {
+public class MenuNavigation : MonoBehaviour
+{
 
     public GameObject cursorLeft;
     public GameObject cursorRight;
@@ -18,6 +19,8 @@ public class MenuNavigation : MonoBehaviour {
     private int prevCursorIndex;
     private float initCursorLeftPosX;
     private float initCursorRightPosX;
+    private bool triggerPlay;
+    private bool triggerQuit;
 
     // Sounds
     private AudioSource[] sounds;
@@ -25,13 +28,16 @@ public class MenuNavigation : MonoBehaviour {
     private AudioSource validationSFX;
     private AudioSource backSFX;
 
-    void Start() {
+    void Start()
+    {
 
         cursorIndex = 0;
         prevCursorIndex = 0;
         prevVertical = 0;
         initCursorLeftPosX = cursorLeft.transform.position.x;
         initCursorRightPosX = cursorRight.transform.position.x;
+        triggerPlay = false;
+        triggerQuit = false;
 
         // Sounds
         sounds = transform.parent.GetComponents<AudioSource>();
@@ -40,59 +46,82 @@ public class MenuNavigation : MonoBehaviour {
         backSFX = sounds[2];
     }
 
-    void Update() {
+    void Update()
+    {
 
         float vertical = Input.GetAxisRaw("Vertical");
         bool submit = Input.GetButtonDown("Submit") || Input.GetMouseButtonDown(0);
 
         UpdateCursorPosition(vertical);
 
-        if (submit) {
+        if (submit)
+        {
             if (!validationSFX.isPlaying)
             {
                 validationSFX.Play();
             }
-            if (cursorIndex == 0) {
-                Play();
-            } else if (cursorIndex == 1) {
+            if (cursorIndex == 0)
+            {
+                triggerPlay = true; ;
+            }
+            else if (cursorIndex == 1)
+            {
                 DisplayHowToPlay();
-            } else if (cursorIndex == 2) {
-                Quit();
+            }
+            else if (cursorIndex == 2)
+            {
+                triggerQuit = true;
             }
         }
+
+        if (triggerPlay && !validationSFX.isPlaying)
+            Play();
+        if (triggerQuit && !validationSFX.isPlaying)
+            Quit();
     }
 
-    private void UpdateCursorPosition(float vertical) {
+    private void UpdateCursorPosition(float vertical)
+    {
 
-        if (prevVertical == 0) {//allow to have one move of the cursor per pressing
-            if (vertical < 0) {
+        if (prevVertical == 0)
+        {//allow to have one move of the cursor per pressing
+            if (vertical < 0)
+            {
                 cursorIndex++;
-            } else if (vertical > 0) {
+            }
+            else if (vertical > 0)
+            {
                 cursorIndex--;
             }
         }
         prevVertical = vertical;
         cursorIndex = Mathf.Clamp(cursorIndex, 0, 2);
 
-        if (prevCursorIndex != cursorIndex) {
+        if (prevCursorIndex != cursorIndex)
+        {
             Vector3 prevPos = cursorLeft.transform.position;
             float newLeftPosX = 0f;
             float newRightPosX = 0f;
-            if (cursorIndex == 0) {
+            if (cursorIndex == 0)
+            {
                 newLeftPosX = initCursorLeftPosX;
                 newRightPosX = initCursorRightPosX;
                 if (!bipSFX.isPlaying)
                 {
                     bipSFX.Play();
                 }
-            } else if (cursorIndex == 1) {
+            }
+            else if (cursorIndex == 1)
+            {
                 newLeftPosX = initCursorLeftPosX - 60;
                 newRightPosX = initCursorRightPosX + 60;
                 if (!bipSFX.isPlaying)
                 {
                     bipSFX.Play();
                 }
-            } else {//cursorIndex == 2
+            }
+            else
+            {//cursorIndex == 2
                 newLeftPosX = initCursorLeftPosX;
                 newRightPosX = initCursorRightPosX;
                 if (!bipSFX.isPlaying)
@@ -107,27 +136,33 @@ public class MenuNavigation : MonoBehaviour {
         }
     }
 
-    public void HighlightPlayText() {
+    public void HighlightPlayText()
+    {
         cursorIndex = 0;
     }
 
-    public void HighlightControlsText() {
+    public void HighlightControlsText()
+    {
         cursorIndex = 1;
     }
 
-    public void HighlightQuitText() {
+    public void HighlightQuitText()
+    {
         cursorIndex = 2;
     }
 
-    private void Play() {
+    private void Play()
+    {
         SceneManager.LoadScene("main");
     }
 
-    private void Quit() {
+    private void Quit()
+    {
         Application.Quit();
     }
 
-    private void DisplayHowToPlay() {
+    private void DisplayHowToPlay()
+    {
 
         mainContainer.SetActive(false);
         howToPlayContainer.SetActive(true);

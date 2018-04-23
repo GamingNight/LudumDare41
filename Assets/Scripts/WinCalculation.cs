@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WinCalculation : MonoBehaviour {
+public class WinCalculation : MonoBehaviour
+{
 
     public float winPoints = 10;
 
@@ -11,7 +12,8 @@ public class WinCalculation : MonoBehaviour {
     private float stepBackDuration;
     private float stepBackTimer;
 
-    void Start() {
+    void Start()
+    {
         animator = GetComponent<Animator>();
         winPoints = 10;
         stepBack = false;
@@ -19,22 +21,29 @@ public class WinCalculation : MonoBehaviour {
         stepBackTimer = 0f;
     }
 
-    private void Update() {
+    private void Update()
+    {
 
-        if (stepBack) {
+        if (stepBack)
+        {
             stepBackTimer += Time.deltaTime;
             float newXPos = Mathf.Lerp(transform.position.x, transform.position.x + 0.49f, stepBackTimer / stepBackDuration);
             transform.position = new Vector2(newXPos, transform.position.y);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Ball" && PlayerManager.GetInstance().GetScoringPoints() != 0) {
-            if (PlayerManager.GetInstance().GetScoringPoints() > winPoints) {
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ball" && PlayerManager.GetInstance().GetScoringPoints() != 0)
+        {
+            if (PlayerManager.GetInstance().GetScoringPoints() > winPoints)
+            {
                 Debug.Log("YOU SCORED");
                 other.gameObject.SetActive(false);
                 animator.SetBool("looseBall", true);
-            } else {
+            }
+            else
+            {
                 other.gameObject.SetActive(false);
                 animator.SetBool("catchBall", true);
                 Debug.Log("The goal keeper catched the ball!");
@@ -42,17 +51,20 @@ public class WinCalculation : MonoBehaviour {
         }
     }
 
-    public void GoalKeeperStepBack() {
+    public void GoalKeeperStepBack()
+    {
 
         stepBack = true;
     }
 
-    public void GameOverByCatch() {
+    public void GameOverByCatch()
+    {
 
-        GameManager.GetInstance().GameOver(GameManager.GameOverType.GOOD_GOAL_KEEPER);
+        GameManager.GetInstance().GameOver(EndGameStats.GameOverType.GOOD_GOAL_KEEPER);
     }
 
-    public void PlayerWins() {
+    public void PlayerWins()
+    {
         GameManager.GetInstance().Win();
     }
 }

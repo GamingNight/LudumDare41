@@ -3,37 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     private static GameManager instance;
 
-    public static GameManager GetInstance() {
+    public static GameManager GetInstance()
+    {
 
         return instance;
     }
 
-    public enum GameOverType {
+    private void Awake()
+    {
 
-        GOOD_GOAL_KEEPER, CATCHED_BY_OPPONENT, TIME_OUT
-    }
-
-    private GameOverType gameOverType;
-
-    private void Awake() {
-
-        if (instance == null) {
-            DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            //DontDestroyOnLoad(gameObject);
             instance = this;
         }
     }
 
-    public void GameOver(GameOverType type) {
+    public void GameOver(EndGameStats.GameOverType type)
+    {
 
-        gameOverType = type;
+        EndGameStats.GAME_OVER_TYPE = type;
         SceneManager.LoadScene("Gameover");
     }
 
-    public void Win() {
+    public void Win()
+    {
 
         SceneManager.LoadScene("Win");
     }
