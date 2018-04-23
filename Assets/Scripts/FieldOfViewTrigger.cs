@@ -2,24 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldOfViewTrigger : MonoBehaviour {
+public class FieldOfViewTrigger : MonoBehaviour
+{
+
+    public BallMagnetism ballMagnetism;
 
     private SpriteRenderer spriteRenderer;
     private GameObject player;
 
-    private void Start() {
+    private void Start()
+    {
 
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void UpdatePlayer(GameObject newPlayer) {
+    public void UpdatePlayer(GameObject newPlayer)
+    {
         player = newPlayer;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
-        if (collision.gameObject == player) {
-            PlayerManager.GetInstance().InstantiateAlly(true, Vector2.one);
+        if (collision.gameObject == player)
+        {
+            if (ballMagnetism.enabled)
+                PlayerManager.GetInstance().InstantiateAlly(true, Vector2.one);
             spriteRenderer.color = new Color(154f / 255, 41f / 255, 28f / 255);
             //Deactivate patrol
             if (transform.parent.gameObject.GetComponent<OpponentControllerPatrol>() != null)

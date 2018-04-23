@@ -260,6 +260,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -316,6 +321,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -397,6 +407,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -497,6 +512,11 @@ Prefab:
       propertyPath: m_Name
       value: OpponentPatrol (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -564,6 +584,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -654,6 +679,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -759,6 +789,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -819,6 +854,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 724dc333076757f45a24784101335325, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &406831197 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114316562791720578, guid: 724dc333076757f45a24784101335325,
+    type: 2}
+  m_PrefabInternal: {fileID: 406831196}
+  m_Script: {fileID: 11500000, guid: 3d6df69565cc84141a96e2cb5213bd17, type: 3}
 --- !u!1001 &448538687
 Prefab:
   m_ObjectHideFlags: 0
@@ -898,6 +939,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114797267518738356, guid: 5f514e90da62d7944aa6f3788b349c37,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f514e90da62d7944aa6f3788b349c37, type: 2}
   m_IsPrefabParent: 0
@@ -961,6 +1007,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -1024,6 +1075,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -1091,6 +1147,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -1172,6 +1233,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -1254,6 +1320,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114797267518738356, guid: 5f514e90da62d7944aa6f3788b349c37,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f514e90da62d7944aa6f3788b349c37, type: 2}
   m_IsPrefabParent: 0
@@ -1392,6 +1463,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -1478,6 +1554,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -1568,6 +1649,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -1631,6 +1717,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -1698,6 +1789,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -1770,6 +1866,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -1907,6 +2008,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -1970,6 +2076,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -2021,6 +2132,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -2107,6 +2223,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -2207,6 +2328,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -2259,6 +2385,11 @@ Prefab:
       propertyPath: winPoints
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 114797267518738356, guid: 8809ee7c9d65f7544bfe15d0daf0e72e,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8809ee7c9d65f7544bfe15d0daf0e72e, type: 2}
   m_IsPrefabParent: 0
@@ -2359,6 +2490,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224252485486127850, guid: 40340f8427a188a4892089949c5fd844,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224252485486127850, guid: 40340f8427a188a4892089949c5fd844,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40340f8427a188a4892089949c5fd844, type: 2}
   m_IsPrefabParent: 0
@@ -2455,6 +2596,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -2545,6 +2691,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -2640,6 +2791,11 @@ Prefab:
       propertyPath: patrolDistance
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -2735,6 +2891,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -2863,6 +3024,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -2949,6 +3115,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -3035,6 +3206,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114132722557980890, guid: fc3a18da05307cd47a0697185a3e592a,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc3a18da05307cd47a0697185a3e592a, type: 2}
   m_IsPrefabParent: 0
@@ -3130,6 +3306,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -3225,6 +3406,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -3288,6 +3474,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0
@@ -3379,6 +3570,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114547018193891018, guid: e604bbc482396cf4ea4154ec2074b004,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e604bbc482396cf4ea4154ec2074b004, type: 2}
   m_IsPrefabParent: 0
@@ -3461,6 +3657,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114797267518738356, guid: 5f514e90da62d7944aa6f3788b349c37,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f514e90da62d7944aa6f3788b349c37, type: 2}
   m_IsPrefabParent: 0
@@ -3528,6 +3729,11 @@ Prefab:
       propertyPath: speed
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 114065807816381352, guid: 994ed8f9b9c39144fbc08f47cdeade7b,
+        type: 2}
+      propertyPath: ballMagnetism
+      value: 
+      objectReference: {fileID: 406831197}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994ed8f9b9c39144fbc08f47cdeade7b, type: 2}
   m_IsPrefabParent: 0

@@ -607,9 +607,11 @@ MonoBehaviour:
 
     V : boost
 
-    Space : passe
+    Space : pass
 
-    R : Shoot
+    R : Load Shoot
+
+    (release to shoot)
 
 '
 --- !u!222 &563041085
@@ -1619,9 +1621,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'When an enemy detect you an ally comes to help you.
-
-    Give him the ball to continue your attack.'
+  m_Text: When an enemy detects you, an ally automatically shows up. Give him the
+    ball to continue your attack! Beware, you have a limited number of passes.
 --- !u!222 &1758346741
 CanvasRenderer:
   m_ObjectHideFlags: 0
