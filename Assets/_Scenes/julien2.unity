@@ -1410,11 +1410,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114455131572668356, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: safeZone
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 114428754976121606, guid: 05aed7493178de54e8c3087ab5c6f36a,
         type: 2}
       propertyPath: cam
@@ -1425,14 +1420,7 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 339223015}
-    - target: {fileID: 114848307284839334, guid: 05aed7493178de54e8c3087ab5c6f36a,
-        type: 2}
-      propertyPath: safeZone
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114848307284839334, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
-    - {fileID: 114455131572668356, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05aed7493178de54e8c3087ab5c6f36a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2059551235
