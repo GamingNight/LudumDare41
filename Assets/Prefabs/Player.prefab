@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4503043594091228}
   - component: {fileID: 198113148154178602}
   - component: {fileID: 199493614237141084}
-  - component: {fileID: 114848307284839334}
   m_Layer: 0
   m_Name: Clouds1
   m_TagString: Untagged
@@ -92,7 +91,6 @@ GameObject:
   - component: {fileID: 4444780861462074}
   - component: {fileID: 198856899558229266}
   - component: {fileID: 199147662824065732}
-  - component: {fileID: 114455131572668356}
   m_Layer: 0
   m_Name: Clouds2
   m_TagString: Untagged
@@ -505,30 +503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedUp: 10
---- !u!114 &114455131572668356
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1366479899453850}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 999902bf30ea1b0438e92d349adbac51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  safeZone: {fileID: 0}
---- !u!114 &114848307284839334
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1277613408029390}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 999902bf30ea1b0438e92d349adbac51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  safeZone: {fileID: 0}
 --- !u!198 &198113148154178602
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -589,7 +563,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1832002466
+  randomSeed: -629376921
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3950,7 +3924,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1529560627
+  randomSeed: 469543031
   InitialModule:
     serializedVersion: 3
     enabled: 1
