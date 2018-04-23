@@ -22,4 +22,8 @@ public class GameManager : MonoBehaviour {
 
         Debug.Log("GameOver");
     }
+
+    public void Win() {
+        Debug.Log("Win");
+    }
 }

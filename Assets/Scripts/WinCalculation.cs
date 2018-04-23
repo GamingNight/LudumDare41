@@ -51,4 +51,8 @@ public class WinCalculation : MonoBehaviour {
 
         GameManager.GetInstance().GameOver();
     }
+
+    public void PlayerWins() {
+        GameManager.GetInstance().Win();
+    }
 }
