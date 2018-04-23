@@ -44,7 +44,7 @@ public class OpponentControllerAttack : MonoBehaviour {
             if (attackLerpRatio < 1) {
                 Vector3 difference = player.transform.position - transform.position;
                 float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-                Quaternion lerpQ = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, rotationZ), attackLerpRatio);
+                Quaternion lerpQ = Quaternion.Lerp(fieldOfViewTrigger.transform.rotation, Quaternion.Euler(0.0f, 0.0f, rotationZ), attackLerpRatio);
                 fieldOfViewTrigger.transform.rotation = lerpQ;
             } else {
                 Vector3 difference = player.transform.position - transform.position;
@@ -78,7 +78,7 @@ public class OpponentControllerAttack : MonoBehaviour {
         }
         animator.SetInteger("direction", (int)animState);
 
-        spriteRenderer.flipX = x > 0;
+        spriteRenderer.flipX = x < 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
