@@ -6,3 +6,4 @@ LudumDare41.sln
 UnityPackageManager/manifest.json
 ProjectSettings/ProjectVersion.txt
 .vs/**
+Build/*
